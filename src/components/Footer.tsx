@@ -10,9 +10,9 @@ export default function Footer() {
           <div>
             <Link to="/" className="inline-block mb-4">
               <img 
-                src="/SIC White.webp" 
+                src="/Light.svg" 
                 alt="SICC Logo" 
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </Link>
             <p className="text-gray-300 mb-4">

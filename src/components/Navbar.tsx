@@ -78,14 +78,14 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/SIC White.webp" 
+              src="/Light.svg" 
               alt="SICC Logo" 
-              className="h-12 md:h-16 w-auto object-contain transition-all duration-300"
+              className="h-20 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-4">
             {navigation.map((item) => {
               if (item.dropdown) {
                 const isActive = item.dropdown.some(
@@ -121,6 +121,7 @@ export default function Navbar() {
                             <Link
                               key={subItem.name}
                               to={subItem.href}
+                              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                               className={`block px-4 py-2 text-sm transition-colors ${
                                 location.pathname === subItem.href
                                   ? 'text-white bg-red-inferno'
@@ -140,6 +141,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   to={item.href}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     location.pathname === item.href
                       ? 'text-white bg-red-inferno'
@@ -209,6 +211,10 @@ export default function Navbar() {
                                 <Link
                                   key={subItem.name}
                                   to={subItem.href}
+                                  onClick={() => {
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    setIsOpen(false);
+                                  }}
                                   className={`block px-3 py-2 text-sm rounded-md transition-colors ${
                                     location.pathname === subItem.href
                                       ? 'text-white bg-red-inferno'
@@ -228,6 +234,10 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       to={item.href}
+                      onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        setIsOpen(false);
+                      }}
                       className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                         location.pathname === item.href
                           ? 'text-white bg-red-inferno'
