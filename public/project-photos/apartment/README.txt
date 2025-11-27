@@ -1,0 +1,1 @@
+Upload project photos for apartment category here. Supported formats: JPG, PNG, WEBP

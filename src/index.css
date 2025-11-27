@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Arimo', sans-serif;
+  --font-heading: 'Arimo', sans-serif;
+  
+  --color-cream: #F5EBD7;
+  --color-red-inferno: #4C2828;
+  --color-mystic-navy: #1B3A52;
+  --color-chocolate: #6B4E3D;
+  --color-blue-gray: #6B8399;
+  
+  /* Keep old names for backward compatibility */
+  --color-mother-pearl: #F5EBD7;
+  --color-chocolate-cremoso: #6B4E3D;
+  --color-muted-blue-gray: #6B8399;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-4 md:px-8 lg:px-16 py-12 md:py-16 lg:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}

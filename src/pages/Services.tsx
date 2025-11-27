@@ -130,10 +130,29 @@ export default function Services() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Our <span className="text-red-inferno">Services</span>
+              Our <span className="text-cream">Services</span>
             </h1>
             <p className="text-xl text-gray-200">
               Comprehensive civil contracting services tailored to your project needs
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="section-padding bg-mother-pearl">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
+              Adapting to Your Project-Specific Requirements
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              We're highly specialized professionals adapting to project-specific requirements across various sectors. Whether it's apartment complexes, bungalows and villas, commercial buildings, educational institutions, high-rise projects, hospitals and healthcare facilities, hotels and hospitality projects, PG accommodations, renovation and refurbishment projects, or residential buildings - we deliver exceptional results tailored to each project's unique needs.
             </p>
           </motion.div>
         </div>

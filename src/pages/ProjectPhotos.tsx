@@ -52,7 +52,7 @@ export default function ProjectPhotos() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Project <span className="text-red-inferno">Photos</span>
+              Project <span className="text-cream">Photos</span>
             </h1>
             <p className="text-xl text-gray-200">
               Explore our portfolio of completed projects across various categories

@@ -2,9 +2,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Building2,
-  Users,
-  Truck,
-  UserCheck,
   ArrowRight,
   CheckCircle,
   Home as HomeIcon,
@@ -12,14 +9,16 @@ import {
   Hotel,
   School,
   Hospital,
-  Store
+  ClipboardList,
+  Grid3x3,
+  Shield,
 } from 'lucide-react';
 
-const stats = [
-  { icon: Users, label: 'Workforce', value: '435+' },
-  { icon: Truck, label: 'Concrete Mixers', value: '14' },
-  { icon: UserCheck, label: 'Architects', value: '7' },
-  { icon: Building2, label: 'Structural Engineers', value: '5' },
+const trustIndicators = [
+  { label: 'Since 1998', value: '1998' },
+  { label: 'Projects Completed', value: '500+' },
+  { label: 'Workforce', value: '435+' },
+  { label: '25+ Years of Experience', value: '25+' },
 ];
 
 const projectTypes = [
@@ -86,7 +85,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-mystic-navy text-white overflow-hidden">
+      <section className="relative bg-mystic-navy text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 opacity-10">
           <img
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920"
@@ -94,58 +93,127 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative container-custom py-24 md:py-32">
+        <div className="relative container-custom py-24 md:py-32 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
-              Building spaces for <span className="text-red-inferno">life</span>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-white">
+              South India's Most Trusted Civil Contractors
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200">
-              Trusted civil contractors since 1998, delivering excellence in every project
+            <p className="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
+              End-to-end civil construction solutions across South India. From planning to execution, we deliver projects across all building types and sectors.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
               >
-                Get a Free Quote
+                Get Free Consultation
                 <ArrowRight className="ml-2" size={20} />
               </Link>
               <Link
-                to="/services"
+                to="/project-photos"
                 className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-mystic-navy transition-colors"
               >
-                Our Services
+                View Our Projects
               </Link>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/20">
+              {trustIndicators.map((indicator, index) => (
+                <motion.div
+                  key={indicator.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-3xl md:text-4xl font-heading font-bold text-white mb-1">
+                    {indicator.value}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-300">{indicator.label}</div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-mother-pearl py-16">
+      {/* Our Expertise Section */}
+      <section className="section-padding bg-mother-pearl">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <stat.icon className="w-12 h-12 mx-auto mb-4 text-red-inferno" />
-                <div className="text-3xl md:text-4xl font-bold text-mystic-navy mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+              Building Spaces for Life
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Our expertise includes translating architectural and engineering designs into tangible, functional structures, ensuring timely completion, budget adherence, and the highest quality and safety standards.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border-2 border-mystic-navy/20 hover:border-mystic-navy transition-colors shadow-lg"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-mystic-navy/10 rounded-lg mb-4">
+                <Building2 className="w-8 h-8 text-mystic-navy" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-3">
+                Comprehensive Project Management
+              </h3>
+              <p className="text-gray-600">
+                From conception to completion, we manage every aspect of your construction project with precision and care.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border-2 border-mystic-navy/20 hover:border-mystic-navy transition-colors shadow-lg"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-mystic-navy/10 rounded-lg mb-4">
+                <Grid3x3 className="w-8 h-8 text-mystic-navy" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-3">
+                Diverse Project Portfolio
+              </h3>
+              <p className="text-gray-600">
+                Specialized in apartments, villas, commercial buildings, hospitals, hotels, educational institutions, and more across Karnataka.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border-2 border-mystic-navy/20 hover:border-mystic-navy transition-colors shadow-lg"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-mystic-navy/10 rounded-lg mb-4">
+                <Shield className="w-8 h-8 text-mystic-navy" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-3">
+                Quality & Safety First
+              </h3>
+              <p className="text-gray-600">
+                Unwavering commitment to the highest quality standards and safety protocols on every project.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -304,8 +372,8 @@ export default function Home() {
                 </div>
                 <p className="text-gray-200 mb-4 italic">"{testimonial.content}"</p>
                 <div>
-                  <div className="font-semibold">{testimonial.name}</div>
-                  <div className="text-sm text-gray-400">{testimonial.role}</div>
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-300">{testimonial.role}</div>
                 </div>
               </motion.div>
             ))}
@@ -321,7 +389,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
               Ready to Start Your Project?
             </h2>
             <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
@@ -329,7 +397,7 @@ export default function Home() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-red-inferno font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center px-8 py-4 bg-white text-red-inferno font-semibold rounded-lg hover:bg-cream transition-colors"
             >
               Contact Us Now
               <ArrowRight className="ml-2" size={20} />

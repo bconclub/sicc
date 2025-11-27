@@ -192,7 +192,7 @@ export default function WorkTimeline() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Work <span className="text-red-inferno">Timeline</span>
+              Work <span className="text-cream">Timeline</span>
             </h1>
             <p className="text-xl text-gray-200">
               25+ years of construction excellence - Our journey from 1998 to present
@@ -212,7 +212,7 @@ export default function WorkTimeline() {
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   filter === type
                     ? 'bg-red-inferno text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-cream text-mystic-navy hover:bg-blue-gray hover:text-white'
                 }`}
               >
                 {type}
@@ -223,7 +223,7 @@ export default function WorkTimeline() {
       </section>
 
       {/* Timeline Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-cream">
         <div className="container-custom max-w-6xl">
           <div className="relative">
             {/* Center Line */}
@@ -263,11 +263,11 @@ export default function WorkTimeline() {
                         <div className="flex items-center gap-2 mb-2">
                           <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
                             item.type === 'Milestone' ? 'bg-red-inferno text-white' :
-                            item.type === 'Residential' ? 'bg-blue-100 text-blue-700' :
-                            item.type === 'Commercial' ? 'bg-green-100 text-green-700' :
-                            item.type === 'Hospital' ? 'bg-purple-100 text-purple-700' :
-                            item.type === 'Hotel' ? 'bg-yellow-100 text-yellow-700' :
-                            'bg-orange-100 text-orange-700'
+                            item.type === 'Residential' ? 'bg-cream text-mystic-navy' :
+                            item.type === 'Commercial' ? 'bg-blue-gray text-white' :
+                            item.type === 'Hospital' ? 'bg-red-inferno text-white' :
+                            item.type === 'Hotel' ? 'bg-chocolate text-cream' :
+                            'bg-mystic-navy text-cream'
                           }`}>
                             {item.type}
                           </span>
@@ -275,14 +275,14 @@ export default function WorkTimeline() {
                         <h3 className="text-2xl font-heading font-bold text-mystic-navy mb-2">
                           {item.title}
                         </h3>
-                        <div className="flex items-center text-gray-500 text-sm mb-3 gap-4">
+                        <div className="flex items-center text-blue-gray text-sm mb-3 gap-4">
                           <div className="flex items-center">
                             <MapPin size={16} className="mr-1" />
                             {item.location}
                           </div>
                         </div>
-                        <p className="text-gray-600 mb-2">{item.description}</p>
-                        <p className="text-sm text-gray-500 italic">{item.details}</p>
+                        <p className="text-mystic-navy mb-2">{item.description}</p>
+                        <p className="text-sm text-blue-gray italic">{item.details}</p>
                       </div>
                     </motion.div>
                   </div>

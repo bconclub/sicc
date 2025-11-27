@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function WhatsAppButton() {
   const handleClick = () => {
-    // Replace with actual WhatsApp number
-    window.open('https://wa.me/91XXXXXXXXXX', '_blank');
+    window.open('https://wa.me/918881117337', '_blank');
   };
 
   return (

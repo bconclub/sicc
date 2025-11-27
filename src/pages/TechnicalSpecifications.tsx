@@ -99,7 +99,7 @@ export default function TechnicalSpecifications() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Technical <span className="text-red-inferno">Specifications</span>
+              Technical <span className="text-cream">Specifications</span>
             </h1>
             <p className="text-xl text-gray-200">
               Our commitment to quality through rigorous standards and best practices

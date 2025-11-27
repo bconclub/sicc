@@ -1,0 +1,1 @@
+Upload project photos for high-rise category here. Supported formats: JPG, PNG, WEBP

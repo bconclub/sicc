@@ -8,9 +8,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-heading font-bold mb-4">
-              <span className="text-red-inferno">SICC</span>
-            </h3>
+            <Link to="/" className="inline-block mb-4">
+              <img 
+                src="/SIC White.webp" 
+                alt="SICC Logo" 
+                className="h-12 md:h-16 w-auto object-contain"
+              />
+            </Link>
             <p className="text-gray-300 mb-4">
               Building spaces for life since 1998. Your trusted partner in construction excellence.
             </p>
@@ -74,11 +78,14 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-gray-300">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span>Bangalore, Karnataka, India</span>
+                <span>
+                  No 35, 1st Floor, 1st Stage, 2nd Phase<br />
+                  Chandra Layout, Bangalore-560040
+                </span>
               </li>
               <li className="flex items-center space-x-3 text-gray-300">
                 <Phone size={20} className="flex-shrink-0" />
-                <span>+91 XXX XXX XXXX</span>
+                <span>+91 888 111 7337</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-300">
                 <Mail size={20} className="flex-shrink-0" />

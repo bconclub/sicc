@@ -1,0 +1,1 @@
+Upload project photos for commercial category here. Supported formats: JPG, PNG, WEBP

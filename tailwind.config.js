@@ -7,15 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        'mother-pearl': '#F5EBD7',
+        'cream': '#F5EBD7',
         'red-inferno': '#4C2828',
         'mystic-navy': '#1B3A52',
+        'chocolate': '#6B4E3D',
+        'blue-gray': '#6B8399',
+        // Keep old names for backward compatibility
+        'mother-pearl': '#F5EBD7',
         'chocolate-cremoso': '#6B4E3D',
         'muted-blue-gray': '#6B8399',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        sans: ['Arimo', 'sans-serif'],
+        heading: ['Arimo', 'sans-serif'],
       },
     },
   },

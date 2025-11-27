@@ -7,7 +7,12 @@ import {
   TrendingUp,
   CheckCircle,
   Briefcase,
-  Heart
+  Heart,
+  Calendar,
+  FileText,
+  DollarSign,
+  Clock,
+  MapPin
 } from 'lucide-react';
 
 const values = [
@@ -70,7 +75,7 @@ export default function About() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              About <span className="text-red-inferno">SICC</span>
+              About <span className="text-cream">SICC</span>
             </h1>
             <p className="text-xl text-gray-200">
               Building spaces for life since 1998 - Your trusted partner in construction excellence
@@ -285,6 +290,188 @@ export default function About() {
               </div>
               <div className="text-3xl font-bold mb-2">435+</div>
               <div className="text-gray-300">Total Workforce</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Core Responsibilities */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+              Our Core Responsibilities
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We're committed to delivering exceptional results through our comprehensive approach
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
+                <Calendar className="w-7 h-7 text-chocolate-cremoso" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
+                Project Planning & Management
+              </h3>
+              <p className="text-gray-600">
+                Strategic planning and seamless management from start to finish
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
+                <FileText className="w-7 h-7 text-chocolate-cremoso" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
+                Design Interpretation & Implementation
+              </h3>
+              <p className="text-gray-600">
+                Translating architectural visions into functional, beautiful structures
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
+                <DollarSign className="w-7 h-7 text-chocolate-cremoso" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
+                Budgeting & Cost Management
+              </h3>
+              <p className="text-gray-600">
+                Transparent budgeting with strict adherence to financial parameters
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
+                <CheckCircle className="w-7 h-7 text-chocolate-cremoso" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
+                Quality Control & Assurance
+              </h3>
+              <p className="text-gray-600">
+                Rigorous quality checks at every stage of construction
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
+                <Shield className="w-7 h-7 text-chocolate-cremoso" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
+                Safety & Risk Management
+              </h3>
+              <p className="text-gray-600">
+                Comprehensive safety protocols and proactive risk mitigation
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
+                <Clock className="w-7 h-7 text-chocolate-cremoso" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
+                Timely Execution & Delivery
+              </h3>
+              <p className="text-gray-600">
+                On-time project completion without compromising on quality
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Karnataka Focus Section */}
+      <section className="section-padding bg-mother-pearl">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
+                Serving Karnataka with Excellence
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                As South India civil contractors, we focus on diverse building types across Karnataka. Our deep understanding of local regulations, climate considerations, and regional requirements ensures projects that are perfectly suited to the Karnataka landscape.
+              </p>
+              
+              {/* Stats Bar */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center p-4 bg-white rounded-lg shadow">
+                  <div className="text-2xl font-heading font-bold text-mystic-navy mb-1">25+</div>
+                  <div className="text-sm text-gray-600">Years in Karnataka</div>
+                </div>
+                <div className="text-center p-4 bg-white rounded-lg shadow">
+                  <div className="text-lg font-heading font-bold text-mystic-navy mb-1">Major Cities</div>
+                  <div className="text-xs text-gray-600">Bangalore, Mysore, Mangalore, Hubli</div>
+                </div>
+                <div className="text-center p-4 bg-white rounded-lg shadow">
+                  <div className="text-lg font-heading font-bold text-mystic-navy mb-1">Local Expertise</div>
+                  <div className="text-xs text-gray-600">Global Standards</div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-white rounded-lg p-8 shadow-xl border-2 border-mystic-navy/20">
+                <div className="aspect-video bg-gradient-to-br from-mystic-navy/10 to-red-inferno/10 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin className="w-16 h-16 text-mystic-navy mx-auto mb-4" />
+                    <div className="text-xl font-heading font-bold text-mystic-navy">Karnataka</div>
+                    <div className="text-sm text-gray-600 mt-2">Our Service Area</div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

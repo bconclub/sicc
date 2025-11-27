@@ -47,7 +47,7 @@ export default function Contact() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Get in <span className="text-red-inferno">Touch</span>
+              Get in <span className="text-cream">Touch</span>
             </h1>
             <p className="text-xl text-gray-200">
               Ready to start your project? Contact us today for a free consultation
@@ -211,9 +211,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-mystic-navy mb-1">Office Address</h3>
                     <p className="text-gray-600">
-                      South India Civil Contractors<br />
-                      Bangalore, Karnataka<br />
-                      India - 560001
+                      South India Civil Contract<br />
+                      No 35, 1st Floor, 1st Stage, 2nd Phase<br />
+                      Chandra Layout, Bangalore-560040
                     </p>
                   </div>
                 </div>
@@ -223,10 +223,9 @@ export default function Contact() {
                     <Phone className="text-white" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-mystic-navy mb-1">Phone Numbers</h3>
+                    <h3 className="font-semibold text-mystic-navy mb-1">Phone Number</h3>
                     <p className="text-gray-600">
-                      Office: +91 XXXX XXX XXX<br />
-                      Mobile: +91 XXXXX XXXXX
+                      Mobile: +91 888 111 7337
                     </p>
                   </div>
                 </div>
@@ -315,7 +314,7 @@ export default function Contact() {
               Get a free quote and consultation for your construction project today
             </p>
             <a
-              href="tel:+91XXXXXXXXXX"
+              href="tel:+918881117337"
               className="inline-block px-8 py-4 bg-white text-red-inferno font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >
               Call Us Now
