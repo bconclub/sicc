@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Search, Download, Eye, Home, Building2, Hotel, Store } from 'lucide-react';
+import { Search, Download, Eye } from 'lucide-react';
 
 interface FloorPlan {
   id: number;

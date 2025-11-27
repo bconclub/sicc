@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Building2, Home, Hospital, Hotel, School, Store, Calendar, MapPin } from 'lucide-react';
+import { Building2, Home, Hospital, Hotel, School, Store, MapPin } from 'lucide-react';
 
 const timelineData = [
   {

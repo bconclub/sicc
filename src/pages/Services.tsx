@@ -7,7 +7,6 @@ import {
   School,
   Hospital,
   Hotel,
-  Store,
   Users,
   Wrench,
   HomeIcon,

@@ -9,7 +9,6 @@ import {
   Hotel,
   School,
   Hospital,
-  ClipboardList,
   Grid3x3,
   Shield,
 } from 'lucide-react';

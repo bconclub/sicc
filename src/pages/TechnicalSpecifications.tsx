@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Award, BookOpen, Zap, Layers, HardHat, FileCheck, Users } from 'lucide-react';
+import { Shield, Award, BookOpen, Layers, HardHat, FileCheck } from 'lucide-react';
 
 const qualityStandards = [
   {
