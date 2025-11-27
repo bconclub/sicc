@@ -65,18 +65,20 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-mystic-navy/80 shadow-lg' 
-          : 'bg-white/20'
+          ? 'bg-mystic-navy shadow-lg' 
+          : 'bg-mystic-navy'
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? 'h-20' : 'h-24'
+        }`}>
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src={isScrolled ? "/SIC White.webp" : "/SICC Dark 01.webp"} 
+              src="/SIC White.webp" 
               alt="SICC Logo" 
               className="h-12 md:h-16 w-auto object-contain transition-all duration-300"
             />
@@ -101,9 +103,7 @@ export default function Navbar() {
                       className={`px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center space-x-1 ${
                         isActive
                           ? 'text-white bg-red-inferno'
-                          : isScrolled 
-                            ? 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
-                            : 'text-mystic-navy hover:bg-mystic-navy/10 hover:text-mystic-navy'
+                          : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
                       }`}
                     >
                       <span>{item.name}</span>
@@ -143,9 +143,7 @@ export default function Navbar() {
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     location.pathname === item.href
                       ? 'text-white bg-red-inferno'
-                      : isScrolled 
-                        ? 'text-gray-200 hover:text-white hover:text-white hover:bg-red-inferno/80'
-                        : 'text-mystic-navy hover:bg-mystic-navy/10 hover:text-mystic-navy'
+                      : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
                   }`}
                 >
                   {item.name}
@@ -157,11 +155,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden inline-flex items-center justify-center p-2 rounded-md transition-colors ${
-              isScrolled 
-                ? 'text-white hover:bg-red-inferno' 
-                : 'text-mystic-navy hover:bg-mystic-navy/10'
-            }`}
+            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-red-inferno transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -192,9 +186,7 @@ export default function Navbar() {
                           className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
                             isActive
                               ? 'text-white bg-red-inferno'
-                              : isScrolled
-                                ? 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
-                                : 'text-mystic-navy hover:bg-mystic-navy/10'
+                              : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
                           }`}
                         >
                           <span>{item.name}</span>
@@ -239,9 +231,7 @@ export default function Navbar() {
                       className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                         location.pathname === item.href
                           ? 'text-white bg-red-inferno'
-                          : isScrolled
-                            ? 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
-                            : 'text-mystic-navy hover:bg-mystic-navy/10'
+                          : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
                       }`}
                     >
                       {item.name}

@@ -85,12 +85,16 @@ export default function Home() {
     <div className="bg-white">
       {/* Hero Section */}
       <section className="relative bg-mystic-navy text-white overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 opacity-10">
-          <img
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920"
-            alt="Construction"
+        <div className="absolute inset-0 opacity-30">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="/SICC HEro.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="relative container-custom py-24 md:py-32 w-full">
           <motion.div
