@@ -48,11 +48,11 @@ const certifications = [
 ];
 
 const milestones = [
-  { year: '1998', event: 'Company Founded', description: 'Started with a vision to transform construction' },
+  { year: '1952', event: 'Company Founded', description: 'Started with a vision to transform construction' },
   { year: '2005', event: '100+ Projects', description: 'Reached significant milestone in project delivery' },
   { year: '2010', event: 'Regional Expansion', description: 'Extended services across South India' },
   { year: '2015', event: 'Industry Recognition', description: 'Received multiple awards for excellence' },
-  { year: '2020', event: '500+ Projects', description: 'Continued growth despite challenges' },
+  { year: '2020', event: '117 Projects', description: 'Continued growth despite challenges' },
   { year: '2025', event: 'Innovation Leader', description: 'Leading with modern construction techniques' },
 ];
 
@@ -78,7 +78,7 @@ export default function About() {
               About <span className="text-cream">SICC</span>
             </h1>
             <p className="text-xl text-gray-200">
-              Building spaces for life since 1998 - Your trusted partner in construction excellence
+              Building spaces for life since 1952 - Your trusted partner in construction excellence
             </p>
           </motion.div>
         </div>
@@ -97,8 +97,8 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Founded in 1998, South India Civil Contractors (SICC) began with a simple vision: to deliver
-                construction projects that combine quality, innovation, and reliability. Over the past 25+ years,
+                Founded in 1952, South India Civil Contractors (SICC) began with a simple vision: to deliver
+                construction projects that combine quality, innovation, and reliability. Over the past 70+ years,
                 we've grown from a small team to one of the most trusted names in civil construction across South India.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
@@ -424,7 +424,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Karnataka Focus Section */}
+      {/* South India Focus Section */}
       <section className="section-padding bg-mother-pearl">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -434,17 +434,17 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
-                Serving Karnataka with Excellence
+                Serving South India with Excellence
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                As South India civil contractors, we focus on diverse building types across Karnataka. Our deep understanding of local regulations, climate considerations, and regional requirements ensures projects that are perfectly suited to the Karnataka landscape.
+                As South India civil contractors, we focus on diverse building types across South India. Our deep understanding of local regulations, climate considerations, and regional requirements ensures projects that are perfectly suited to the South India landscape.
               </p>
               
               {/* Stats Bar */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow">
-                  <div className="text-2xl font-heading font-bold text-mystic-navy mb-1">25+</div>
-                  <div className="text-sm text-gray-600">Years in Karnataka</div>
+                  <div className="text-2xl font-heading font-bold text-mystic-navy mb-1">70+</div>
+                  <div className="text-sm text-gray-600">Years in South India</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-lg shadow">
                   <div className="text-lg font-heading font-bold text-mystic-navy mb-1">Major Cities</div>
@@ -464,11 +464,18 @@ export default function About() {
               className="relative"
             >
               <div className="bg-white rounded-lg p-8 shadow-xl border-2 border-mystic-navy/20">
-                <div className="aspect-video bg-gradient-to-br from-mystic-navy/10 to-red-inferno/10 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-16 h-16 text-mystic-navy mx-auto mb-4" />
-                    <div className="text-xl font-heading font-bold text-mystic-navy">Karnataka</div>
-                    <div className="text-sm text-gray-600 mt-2">Our Service Area</div>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop"
+                    alt="South India Map"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mystic-navy/40 to-transparent flex items-end justify-center pb-4">
+                    <div className="text-center">
+                      <MapPin className="w-12 h-12 text-white mx-auto mb-2" />
+                      <div className="text-xl font-heading font-bold text-white">South India</div>
+                      <div className="text-sm text-gray-100 mt-1">Our Service Area</div>
+                    </div>
                   </div>
                 </div>
               </div>

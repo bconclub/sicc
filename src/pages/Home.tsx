@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Building2,
@@ -12,12 +13,40 @@ import {
   Grid3x3,
   Shield,
 } from 'lucide-react';
+// Option 1: All SOLID icons from Font Awesome
+import { FaStar, FaBuilding, FaUsers, FaAward } from 'react-icons/fa';
+// Option 2: All STROKE icons from Bootstrap (commented out - uncomment to use)
+// import { BsStar, BsBuilding, BsPeople, BsAward } from 'react-icons/bs';
+// Option 3: All SOLID icons from Bootstrap (commented out - uncomment to use)
+// import { BsStarFill, BsBuildingFill, BsPeopleFill, BsAwardFill } from 'react-icons/bs';
 
+// Currently using: Option 1 - All SOLID Font Awesome icons
 const trustIndicators = [
-  { label: 'Since 1998', value: '1998' },
-  { label: 'Projects Completed', value: '500+' },
-  { label: 'Workforce', value: '435+' },
-  { label: '25+ Years of Experience', value: '25+' },
+  { label: 'Since 1952', value: '1952', icon: FaStar },
+  { label: 'Projects Completed', value: '117', icon: FaBuilding },
+  { label: 'Workforce', value: '435+', icon: FaUsers },
+  { label: 'Years of Experience', value: '70+', icon: FaAward },
+];
+
+const expertiseData = [
+  {
+    icon: Building2,
+    title: 'Comprehensive Project Management',
+    description: 'From conception to completion, we manage every aspect of your construction project with precision and care, ensuring timelines and budgets are met without compromise.',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800'
+  },
+  {
+    icon: Grid3x3,
+    title: 'Diverse Project Portfolio',
+    description: 'Our expertise spans across residential complexes, luxury villas, commercial hubs, hospitals, and educational institutions, demonstrating our versatility and adaptability.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800'
+  },
+  {
+    icon: Shield,
+    title: 'Quality & Safety First',
+    description: 'We adhere to the strictest quality standards and safety protocols. Our ISO-certified processes ensure that every structure is built to last and safe for its occupants.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800'
+  }
 ];
 
 const projectTypes = [
@@ -81,6 +110,15 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const [activeFeature, setActiveFeature] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveFeature((prev) => (prev + 1) % expertiseData.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -103,7 +141,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-white">
+            <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
               South India's Most Trusted Civil Contractors
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
@@ -133,12 +171,19 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="text-center"
+                  className="flex items-center gap-3"
                 >
-                  <div className="text-3xl md:text-4xl font-heading font-bold text-white mb-1">
-                    {indicator.value}
+                  <div className="flex-shrink-0">
+                    <indicator.icon className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-sm md:text-base text-gray-300">{indicator.label}</div>
+                  <div className="flex flex-col">
+                    <div className="text-3xl md:text-4xl font-heading font-bold text-white">
+                      {indicator.value}
+                    </div>
+                    <div className="text-sm md:text-base text-gray-300">
+                      {indicator.label}
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -149,96 +194,125 @@ export default function Home() {
       {/* Our Expertise Section */}
       <section className="section-padding bg-mother-pearl">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-mystic-navy mb-4">
               Building Spaces for Life
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Our expertise includes translating architectural and engineering designs into tangible, functional structures, ensuring timely completion, budget adherence, and the highest quality and safety standards.
+              Our expertise includes translating architectural and engineering designs into tangible, functional structures.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border-2 border-mystic-navy/20 hover:border-mystic-navy transition-colors shadow-lg"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-mystic-navy/10 rounded-lg mb-4">
-                <Building2 className="w-8 h-8 text-mystic-navy" />
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch min-h-[500px]">
+            {/* Left Column: Image Slider */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-auto">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeFeature}
+                  src={expertiseData[activeFeature].image}
+                  alt={expertiseData[activeFeature].title}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-mystic-navy/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <p className="text-sm font-semibold tracking-wider uppercase mb-2 text-red-inferno">Featured Expertise</p>
+                <h3 className="text-2xl font-heading font-bold">{expertiseData[activeFeature].title}</h3>
               </div>
-              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-3">
-                Comprehensive Project Management
-              </h3>
-              <p className="text-gray-600">
-                From conception to completion, we manage every aspect of your construction project with precision and care.
-              </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border-2 border-mystic-navy/20 hover:border-mystic-navy transition-colors shadow-lg"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-mystic-navy/10 rounded-lg mb-4">
-                <Grid3x3 className="w-8 h-8 text-mystic-navy" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-3">
-                Diverse Project Portfolio
-              </h3>
-              <p className="text-gray-600">
-                Specialized in apartments, villas, commercial buildings, hospitals, hotels, educational institutions, and more across Karnataka.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border-2 border-mystic-navy/20 hover:border-mystic-navy transition-colors shadow-lg"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-mystic-navy/10 rounded-lg mb-4">
-                <Shield className="w-8 h-8 text-mystic-navy" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-3">
-                Quality & Safety First
-              </h3>
-              <p className="text-gray-600">
-                Unwavering commitment to the highest quality standards and safety protocols on every project.
-              </p>
-            </motion.div>
+            {/* Right Column: Interactive Content */}
+            <div className="flex flex-col justify-center space-y-4">
+              {expertiseData.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => setActiveFeature(index)}
+                  className={`cursor-pointer rounded-xl p-6 transition-all duration-300 border-2 ${activeFeature === index
+                    ? 'bg-white border-red-inferno shadow-lg scale-105'
+                    : 'bg-white/50 border-transparent hover:bg-white hover:shadow'
+                    }`}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={`flex-shrink-0 p-3 rounded-lg transition-colors ${activeFeature === index ? 'bg-red-inferno text-white' : 'bg-mystic-navy/10 text-mystic-navy'
+                      }`}>
+                      <item.icon size={24} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className={`text-xl font-heading font-semibold mb-1 ${activeFeature === index ? 'text-mystic-navy' : 'text-gray-600'
+                        }`}>
+                        {item.title}
+                      </h3>
+                      <AnimatePresence>
+                        {activeFeature === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-gray-600 mb-2">{item.description}</p>
+                            {/* Timeline/Progress Bar */}
+                            <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                              <motion.div
+                                initial={{ width: '0%' }}
+                                animate={{ width: '100%' }}
+                                transition={{ duration: 5, ease: 'linear' }}
+                                className="h-full bg-red-inferno"
+                              />
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Company Overview */}
-      <section className="section-padding">
-        <div className="container-custom">
+      <section className="section-padding relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+        {/* Opaque "70" Background Watermark */}
+        <div className="absolute top-1/2 left-4 md:left-1/2 md:-translate-x-[600px] -translate-y-1/2 pointer-events-none select-none z-0">
+          <span className="text-[28rem] md:text-[40rem] font-heading font-black text-gray-300/30 md:text-gray-300/20 leading-none">
+            70
+          </span>
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="pl-4 md:pl-0"
             >
               <div className="inline-block px-4 py-2 bg-red-inferno/10 text-red-inferno rounded-full text-sm font-semibold mb-4">
-                Since 1998
+                Since 1952
               </div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
-                25+ Years of Construction Excellence
+
+              {/* Prominent "70+" Display */}
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-[8rem] md:text-[10rem] font-heading font-black text-red-inferno leading-none">
+                  70
+                </span>
+                <div className="flex flex-col justify-end pb-4">
+                  <span className="text-5xl md:text-6xl font-heading font-bold text-mystic-navy">+</span>
+                  <span className="text-lg font-semibold text-gray-600 uppercase tracking-wider">Years</span>
+                </div>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-heading font-black text-mystic-navy mb-6">
+                of Construction Excellence
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 South India Civil Contractors (SICC) has been at the forefront of construction innovation
-                since 1998. With a strong workforce of over 435 professionals and state-of-the-art equipment,
+                since 1952. With a strong workforce of over 435 professionals and state-of-the-art equipment,
                 we deliver projects that stand the test of time.
               </p>
               <ul className="space-y-3 mb-8">
@@ -269,11 +343,13 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative"
             >
-              <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800"
-                alt="Construction team"
-                className="rounded-lg shadow-2xl"
-              />
+              <div className="rounded-lg shadow-2xl bg-gray-200 aspect-[4/3] flex items-center justify-center">
+                <div className="text-center p-8">
+                  <Building2 className="w-24 h-24 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500 font-semibold">Construction Team Photo</p>
+                  <p className="text-gray-400 text-sm">Placeholder</p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

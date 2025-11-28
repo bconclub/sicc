@@ -11,7 +11,7 @@ const navigation = [
     name: 'Our Work',
     href: '#',
     dropdown: [
-      { name: 'Work Timeline', href: '/work-timeline' },
+  { name: 'Work Timeline', href: '/work-timeline' },
       { name: 'Project Photos', href: '/project-photos' },
       { name: 'Project Videos', href: '/project-videos' },
     ],
@@ -21,8 +21,8 @@ const navigation = [
     href: '#',
     dropdown: [
       { name: 'Technical Specifications', href: '/technical-specifications' },
-      { name: 'Assets & Manpower', href: '/assets-manpower' },
-      { name: 'Floor Plans', href: '/floor-plans' },
+  { name: 'Assets & Manpower', href: '/assets-manpower' },
+  { name: 'Floor Plans', href: '/floor-plans' },
     ],
   },
   { name: 'Contact Us', href: '/contact' },
@@ -138,18 +138,18 @@ export default function Navbar() {
                 );
               }
               return (
-                <Link
-                  key={item.name}
-                  to={item.href}
+              <Link
+                key={item.name}
+                to={item.href}
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                    location.pathname === item.href
-                      ? 'text-white bg-red-inferno'
-                      : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  location.pathname === item.href
+                    ? 'text-white bg-red-inferno'
+                    : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                }`}
+              >
+                {item.name}
+              </Link>
               );
             })}
           </div>
@@ -231,21 +231,21 @@ export default function Navbar() {
                     );
                   }
                   return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
+                  <Link
+                    key={item.name}
+                    to={item.href}
                       onClick={() => {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         setIsOpen(false);
                       }}
-                      className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                        location.pathname === item.href
-                          ? 'text-white bg-red-inferno'
-                          : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
+                    className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                      location.pathname === item.href
+                        ? 'text-white bg-red-inferno'
+                        : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
                   );
                 })}
               </div>
