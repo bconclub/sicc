@@ -141,7 +141,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+            <h1 className="text-[2.7rem] md:text-6xl font-heading font-bold mb-6 text-white">
               South India's Most Trusted Civil Contractors
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
@@ -150,14 +150,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2" size={20} />
               </Link>
               <Link
                 to="/project-photos"
-                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-mystic-navy transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-mystic-navy transition-colors"
               >
                 View Our Projects
               </Link>
