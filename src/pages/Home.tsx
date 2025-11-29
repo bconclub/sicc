@@ -141,7 +141,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-[2.7rem] md:text-6xl font-heading font-bold mb-6 text-white">
+            <h1 className="text-[3.7rem] md:text-6xl font-heading font-bold mb-6 text-white leading-tight">
               South India's Most Trusted Civil Contractors
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
