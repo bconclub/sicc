@@ -2,7 +2,7 @@ name: Deploy SICC to Hostinger
 
 on:
   push:
-    branches: [main]
+    branches: [Main, main]
 
 jobs:
   build-and-deploy:
