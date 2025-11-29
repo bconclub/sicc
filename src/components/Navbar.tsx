@@ -63,12 +63,16 @@ export default function Navbar() {
     }
   }, [openDropdown]);
 
+  const isHomePage = location.pathname === '/';
+  
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 -mb-20 ${
         isScrolled 
           ? 'bg-[#F5EBD7]/80 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
+          : isHomePage
+            ? 'bg-white/20 backdrop-blur-md'
+            : 'bg-mystic-navy/80 backdrop-blur-md'
       }`}
     >
       <div className="container-custom">
@@ -176,7 +180,11 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden overflow-hidden"
+              className={`lg:hidden overflow-hidden ${
+                isHomePage 
+                  ? 'bg-white/20 backdrop-blur-md' 
+                  : 'bg-mystic-navy/80 backdrop-blur-md'
+              }`}
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {navigation.map((item) => {
