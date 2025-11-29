@@ -81,7 +81,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
@@ -114,7 +114,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -130,7 +130,7 @@ export default function Contact() {
                     value={formData.projectType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
                   >
                     <option value="">Select project type</option>
                     <option value="Apartment">Apartment Project</option>
@@ -158,7 +158,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none"
                     placeholder="Tell us about your project requirements..."
                   />
                 </div>
@@ -204,7 +204,7 @@ export default function Contact() {
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-start space-x-4 p-4 bg-accent/10 rounded-lg">
                   <div className="flex-shrink-0 w-12 h-12 bg-red-inferno rounded-lg flex items-center justify-center">
                     <MapPin className="text-white" size={24} />
                   </div>
@@ -218,7 +218,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-start space-x-4 p-4 bg-accent/10 rounded-lg">
                   <div className="flex-shrink-0 w-12 h-12 bg-red-inferno rounded-lg flex items-center justify-center">
                     <Phone className="text-white" size={24} />
                   </div>
@@ -230,7 +230,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-start space-x-4 p-4 bg-accent/10 rounded-lg">
                   <div className="flex-shrink-0 w-12 h-12 bg-red-inferno rounded-lg flex items-center justify-center">
                     <Mail className="text-white" size={24} />
                   </div>
@@ -243,7 +243,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-start space-x-4 p-4 bg-accent/10 rounded-lg">
                   <div className="flex-shrink-0 w-12 h-12 bg-red-inferno rounded-lg flex items-center justify-center">
                     <Clock className="text-white" size={24} />
                   </div>
@@ -253,29 +253,6 @@ export default function Contact() {
                       Monday - Saturday: 9:00 AM - 6:00 PM<br />
                       Sunday: Closed
                     </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="bg-mystic-navy rounded-lg p-6 text-white">
-                <h3 className="text-xl font-heading font-semibold mb-4">Why Choose Us?</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="text-3xl font-bold text-red-inferno">25+</div>
-                    <div className="text-sm text-gray-300">Years Experience</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-red-inferno">500+</div>
-                    <div className="text-sm text-gray-300">Projects Done</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-red-inferno">435+</div>
-                    <div className="text-sm text-gray-300">Team Members</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-red-inferno">100%</div>
-                    <div className="text-sm text-gray-300">Satisfaction</div>
                   </div>
                 </div>
               </div>

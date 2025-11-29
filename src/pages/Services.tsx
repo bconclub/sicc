@@ -128,25 +128,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="section-padding bg-mother-pearl">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
-              Adapting to Your Project-Specific Requirements
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              We're highly specialized professionals adapting to project-specific requirements across various sectors. Whether it's apartment complexes, bungalows and villas, commercial buildings, educational institutions, high-rise projects, hospitals and healthcare facilities, hotels and hospitality projects, PG accommodations, renovation and refurbishment projects, or residential buildings - we deliver exceptional results tailored to each project's unique needs.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Main Services Grid */}
       <section className="section-padding">
         <div className="container-custom">
@@ -172,7 +153,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-inferno hover:shadow-xl transition-all"
+                className="group bg-white border-2 border-accent/30 rounded-lg p-6 hover:border-red-inferno hover:shadow-xl transition-all"
               >
                 <div className="flex flex-col">
                   <div className="mb-4">
@@ -204,7 +185,7 @@ export default function Services() {
       </section>
 
       {/* Civil Labor Contract Package - Pricing Card */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-accent/10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -224,7 +205,7 @@ export default function Services() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-gray-200 hover:border-red-inferno transition-all cursor-pointer"
+              className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-accent/30 hover:border-red-inferno transition-all cursor-pointer"
               onClick={() => setIsExpanded(!isExpanded)}
             >
               <div className="bg-red-inferno text-white p-6">
@@ -243,7 +224,7 @@ export default function Services() {
               </div>
 
               <div className="p-6">
-                <div className="flex items-center justify-between mb-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-between mb-4 p-4 bg-accent/10 rounded-lg">
                   <span className="font-semibold text-mystic-navy">
                     View All 20 Services Included
                   </span>
@@ -266,7 +247,7 @@ export default function Services() {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -10 }}
                         transition={{ delay: index * 0.03 }}
-                        className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
+                        className="flex items-start space-x-3 p-3 bg-accent/10 rounded-lg"
                       >
                         <CheckCircle className="w-5 h-5 text-red-inferno flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm">{service}</span>

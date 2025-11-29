@@ -12,6 +12,8 @@ import {
   Hospital,
   Grid3x3,
   Shield,
+  X,
+  Send,
 } from 'lucide-react';
 // Option 1: All SOLID icons from Font Awesome
 import { FaStar, FaBuilding, FaUsers, FaAward } from 'react-icons/fa';
@@ -111,6 +113,15 @@ const testimonials = [
 
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    projectType: '',
+    message: ''
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -119,8 +130,178 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', phone: '', email: '', projectType: '', message: '' });
+      setIsConsultationOpen(false);
+    }, 3000);
+  };
+
   return (
-    <div className="bg-white">
+    <div className={`bg-white ${isConsultationOpen ? 'overflow-hidden' : ''}`}>
+      {/* Consultation Popup Modal */}
+      <AnimatePresence>
+        {isConsultationOpen && (
+          <>
+            {/* Blur overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              onClick={() => setIsConsultationOpen(false)}
+            />
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none"
+            >
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
+              <div className="sticky top-0 bg-white border-b border-accent/20 px-6 py-4 flex items-center justify-between">
+                <h2 className="text-2xl font-heading font-bold text-mystic-navy">
+                  Get Free Consultation
+                </h2>
+                <button
+                  onClick={() => setIsConsultationOpen(false)}
+                  className="p-2 hover:bg-accent/10 rounded-full transition-colors"
+                >
+                  <X className="text-mystic-navy" size={24} />
+                </button>
+              </div>
+              
+              <form onSubmit={handleFormSubmit} className="p-6 space-y-6">
+                <div>
+                  <label htmlFor="consult-name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="consult-name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="consult-phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="consult-phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleFormChange}
+                      required
+                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                      placeholder="+91 XXXXX XXXXX"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="consult-email" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="consult-email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleFormChange}
+                      required
+                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="consult-project" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Project Type *
+                  </label>
+                  <select
+                    id="consult-project"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                  >
+                    <option value="">Select project type</option>
+                    <option value="Apartment">Apartment Project</option>
+                    <option value="Bungalow">Bungalow Building</option>
+                    <option value="Commercial">Commercial Building</option>
+                    <option value="College">College Building</option>
+                    <option value="High Rise">High Rise Project</option>
+                    <option value="Hospital">Hospital Project</option>
+                    <option value="Hotel">Hotel Project</option>
+                    <option value="PG">PG Building</option>
+                    <option value="Renovation">Renovation Work</option>
+                    <option value="Residential">Residential Building</option>
+                    <option value="Villa">Villa Building</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="consult-message" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Project Details *
+                  </label>
+                  <textarea
+                    id="consult-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleFormChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none"
+                    placeholder="Tell us about your project requirements..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitted}
+                  className={`w-full flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-colors ${
+                    isSubmitted
+                      ? 'bg-green-500 text-white'
+                      : 'bg-red-inferno text-white hover:bg-red-inferno/90'
+                  }`}
+                >
+                  {isSubmitted ? (
+                    <>
+                      <CheckCircle className="mr-2" size={20} />
+                      Request Sent Successfully!
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2" size={20} />
+                      Submit Request
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
       {/* Hero Section */}
       <section className="relative bg-mystic-navy text-white overflow-hidden min-h-screen flex items-center -mt-20">
         <div className="absolute inset-0 opacity-30 z-0">
@@ -134,7 +315,7 @@ export default function Home() {
             <source src="/SICC HEro.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="relative container-custom pt-32 md:pt-40 pb-24 md:pb-32 w-full z-10">
+        <div className="relative container-custom pt-24 md:pt-40 pb-24 md:pb-32 w-full z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,13 +329,13 @@ export default function Home() {
               End-to-end civil construction solutions across South India. From planning to execution, we deliver projects across all building types and sectors.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link
-                to="/contact"
+              <button
+                onClick={() => setIsConsultationOpen(true)}
                 className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2" size={20} />
-              </Link>
+              </button>
               <Link
                 to="/project-photos"
                 className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-mystic-navy transition-colors"
@@ -195,7 +376,7 @@ export default function Home() {
       <section className="section-padding bg-mother-pearl">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-4">
               Building Spaces for Life
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -256,7 +437,7 @@ export default function Home() {
                           >
                             <p className="text-accent mb-2">{item.description}</p>
                             {/* Timeline/Progress Bar */}
-                            <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                            <div className="h-1 w-full bg-accent/20 rounded-full overflow-hidden">
                               <motion.div
                                 initial={{ width: '0%' }}
                                 animate={{ width: '100%' }}
@@ -343,7 +524,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="rounded-lg shadow-2xl bg-gray-200 aspect-[4/3] flex items-center justify-center">
+              <div className="rounded-lg shadow-2xl bg-accent/20 aspect-[4/3] flex items-center justify-center">
                 <div className="text-center p-8">
                   <Building2 className="w-24 h-24 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500 font-semibold">Construction Team Photo</p>
@@ -356,7 +537,7 @@ export default function Home() {
       </section>
 
       {/* Project Types Grid */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-accent/10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

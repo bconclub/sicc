@@ -83,7 +83,7 @@ export default function FloorPlans() {
       </section>
 
       {/* Search & Filter Section */}
-      <section className="bg-gray-50 py-8 sticky top-20 z-40 shadow-md">
+      <section className="bg-accent/10 py-8 sticky top-20 z-40 shadow-md">
         <div className="container-custom">
           <div className="bg-white rounded-lg p-6 shadow-lg">
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -95,7 +95,7 @@ export default function FloorPlans() {
                   placeholder="Search floor plans..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
                 />
               </div>
 
@@ -103,7 +103,7 @@ export default function FloorPlans() {
               <select
                 value={selectedBedrooms}
                 onChange={(e) => setSelectedBedrooms(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                className="px-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
               >
                 {bedroomOptions.map(option => (
                   <option key={option} value={option}>{option}</option>
@@ -114,7 +114,7 @@ export default function FloorPlans() {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                className="px-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
               >
                 {typeOptions.map(option => (
                   <option key={option} value={option}>{option}</option>
@@ -125,7 +125,7 @@ export default function FloorPlans() {
               <select
                 value={areaRange}
                 onChange={(e) => setAreaRange(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                className="px-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
               >
                 {areaOptions.map(option => (
                   <option key={option} value={option}>
@@ -167,10 +167,10 @@ export default function FloorPlans() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
-                      <button className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors">
+                      <button className="p-2 bg-white rounded-full hover:bg-accent/15 transition-colors">
                         <Eye className="text-mystic-navy" size={20} />
                       </button>
-                      <button className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors">
+                      <button className="p-2 bg-white rounded-full hover:bg-accent/15 transition-colors">
                         <Download className="text-mystic-navy" size={20} />
                       </button>
                     </div>
@@ -206,7 +206,7 @@ export default function FloorPlans() {
                       <button className="flex-1 px-4 py-2 bg-mystic-navy text-white text-sm font-semibold rounded-lg hover:bg-mystic-navy/90 transition-colors">
                         View Details
                       </button>
-                      <button className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-semibold rounded-lg hover:bg-gray-200 transition-colors">
+                      <button className="px-4 py-2 bg-accent/15 text-gray-700 text-sm font-semibold rounded-lg hover:bg-accent/25 transition-colors">
                         <Download size={16} />
                       </button>
                     </div>

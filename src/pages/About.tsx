@@ -135,7 +135,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-accent/10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -318,7 +318,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 border border-accent/30 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
                 <Calendar className="w-7 h-7 text-chocolate-cremoso" />
@@ -336,7 +336,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 border border-accent/30 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
                 <FileText className="w-7 h-7 text-chocolate-cremoso" />
@@ -354,7 +354,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 border border-accent/30 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
                 <DollarSign className="w-7 h-7 text-chocolate-cremoso" />
@@ -372,7 +372,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 border border-accent/30 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
                 <CheckCircle className="w-7 h-7 text-chocolate-cremoso" />
@@ -390,7 +390,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 border border-accent/30 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
                 <Shield className="w-7 h-7 text-chocolate-cremoso" />
@@ -408,7 +408,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg p-6 border border-accent/30 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 bg-chocolate-cremoso/10 rounded-lg mb-4">
                 <Clock className="w-7 h-7 text-chocolate-cremoso" />

@@ -78,7 +78,11 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link 
+            to="/" 
+            className="flex items-center"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <img 
               src={isScrolled ? "/SICC.png" : "/Light.svg"} 
               alt="SICC Logo" 
@@ -234,7 +238,7 @@ export default function Navbar() {
                                   className={`block px-3 py-2 text-sm rounded-md transition-colors ${
                                     location.pathname === subItem.href
                                       ? 'text-white bg-red-inferno'
-                                      : 'text-gray-300 hover:text-white hover:bg-accent/80'
+                                      : 'text-red-inferno hover:text-white hover:bg-red-inferno'
                                   }`}
                                 >
                                   {subItem.name}

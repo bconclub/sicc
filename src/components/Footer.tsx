@@ -95,7 +95,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-accent/50 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} South India Civil Contractors. All rights reserved.</p>
         </div>
       </div>

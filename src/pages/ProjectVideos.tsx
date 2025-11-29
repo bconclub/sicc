@@ -143,7 +143,7 @@ export default function ProjectVideos() {
                 className={`px-6 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === category
                     ? 'bg-red-inferno text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-accent/15 text-gray-700 hover:bg-accent/25'
                 }`}
               >
                 {category}
@@ -209,7 +209,7 @@ export default function ProjectVideos() {
       </section>
 
       {/* Featured Video Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-accent/10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

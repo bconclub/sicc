@@ -72,7 +72,7 @@ export default function ProjectPhotos() {
                 className={`px-6 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === category
                     ? 'bg-red-inferno text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-accent/15 text-gray-700 hover:bg-accent/25'
                 }`}
               >
                 {category}

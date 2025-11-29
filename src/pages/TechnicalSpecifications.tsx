@@ -133,7 +133,7 @@ export default function TechnicalSpecifications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-inferno transition-colors text-center"
+                className="bg-white border-2 border-accent/30 rounded-lg p-6 hover:border-red-inferno transition-colors text-center"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-inferno/10 rounded-full mb-4">
                   <standard.icon className="w-8 h-8 text-red-inferno" />
@@ -149,7 +149,7 @@ export default function TechnicalSpecifications() {
       </section>
 
       {/* Materials Used */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-accent/10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
