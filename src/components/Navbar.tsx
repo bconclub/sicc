@@ -65,22 +65,20 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 -mb-20 ${
         isScrolled 
-          ? 'bg-mystic-navy shadow-lg' 
-          : 'bg-mystic-navy'
+          ? 'bg-[#F5EBD7]/80 backdrop-blur-md shadow-lg' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
-        <div className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'h-20' : 'h-24'
-        }`}>
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/Light.svg" 
+              src={isScrolled ? "/SICC.png" : "/Light.svg"} 
               alt="SICC Logo" 
-              className="h-20 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300"
+              className="h-16 md:h-18 lg:h-20 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
@@ -103,7 +101,9 @@ export default function Navbar() {
                       className={`px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center space-x-1 ${
                         isActive
                           ? 'text-white bg-red-inferno'
-                          : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                          : isScrolled
+                            ? 'text-[#1B3A52] hover:text-white hover:bg-red-inferno/80'
+                            : 'text-white hover:bg-white/20'
                       }`}
                     >
                       <span>{item.name}</span>
@@ -125,7 +125,7 @@ export default function Navbar() {
                               className={`block px-4 py-2 text-sm transition-colors ${
                                 location.pathname === subItem.href
                                   ? 'text-white bg-red-inferno'
-                                  : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                                  : 'text-gray-200 hover:text-white hover:bg-accent/80'
                               }`}
                             >
                               {subItem.name}
@@ -145,7 +145,9 @@ export default function Navbar() {
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                   location.pathname === item.href
                     ? 'text-white bg-red-inferno'
-                    : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                    : isScrolled
+                      ? 'text-[#1B3A52] hover:text-white hover:bg-red-inferno/80'
+                      : 'text-white hover:bg-white/20'
                 }`}
               >
                 {item.name}
@@ -157,7 +159,11 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-red-inferno transition-colors"
+            className={`lg:hidden inline-flex items-center justify-center p-2 rounded-md transition-colors ${
+              isScrolled
+                ? 'text-[#1B3A52] hover:bg-red-inferno hover:text-white'
+                : 'text-white hover:bg-white/20'
+            }`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -188,7 +194,9 @@ export default function Navbar() {
                           className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
                             isActive
                               ? 'text-white bg-red-inferno'
-                              : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                              : isScrolled
+                                ? 'text-[#1B3A52] hover:text-white hover:bg-red-inferno/80'
+                                : 'text-white hover:bg-white/20'
                           }`}
                         >
                           <span>{item.name}</span>
@@ -218,7 +226,7 @@ export default function Navbar() {
                                   className={`block px-3 py-2 text-sm rounded-md transition-colors ${
                                     location.pathname === subItem.href
                                       ? 'text-white bg-red-inferno'
-                                      : 'text-gray-300 hover:text-white hover:bg-red-inferno/80'
+                                      : 'text-gray-300 hover:text-white hover:bg-accent/80'
                                   }`}
                                 >
                                   {subItem.name}
@@ -241,7 +249,9 @@ export default function Navbar() {
                     className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                       location.pathname === item.href
                         ? 'text-white bg-red-inferno'
-                        : 'text-gray-200 hover:text-white hover:bg-red-inferno/80'
+                        : isScrolled
+                          ? 'text-[#1B3A52] hover:text-white hover:bg-red-inferno/80'
+                          : 'text-white hover:bg-white/20'
                     }`}
                   >
                     {item.name}

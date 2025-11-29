@@ -12,6 +12,7 @@ export default {
         'mystic-navy': '#1B3A52',
         'chocolate': '#6B4E3D',
         'blue-gray': '#6B8399',
+        'accent': '#555454',
         // Keep old names for backward compatibility
         'mother-pearl': '#F5EBD7',
         'chocolate-cremoso': '#6B4E3D',

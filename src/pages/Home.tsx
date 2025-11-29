@@ -122,8 +122,8 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-mystic-navy text-white overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 opacity-30">
+      <section className="relative bg-mystic-navy text-white overflow-hidden min-h-screen flex items-center -mt-20">
+        <div className="absolute inset-0 opacity-30 z-0">
           <video
             autoPlay
             loop
@@ -134,14 +134,14 @@ export default function Home() {
             <source src="/SICC HEro.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="relative container-custom py-24 md:py-32 w-full">
+        <div className="relative container-custom pt-32 md:pt-40 pb-24 md:pb-32 w-full z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-[3.7rem] md:text-6xl font-heading font-bold mb-6 text-white leading-tight">
+            <h1 className="text-[2.6rem] md:text-6xl font-heading font-bold mb-6 text-white leading-tight">
               South India's Most Trusted Civil Contractors
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
@@ -242,7 +242,7 @@ export default function Home() {
                       <item.icon size={24} />
                     </div>
                     <div className="flex-1">
-                      <h3 className={`text-xl font-heading font-semibold mb-1 ${activeFeature === index ? 'text-mystic-navy' : 'text-gray-600'
+                      <h3 className={`text-xl font-heading font-semibold mb-1 ${activeFeature === index ? 'text-mystic-navy' : 'text-accent'
                         }`}>
                         {item.title}
                       </h3>
@@ -254,7 +254,7 @@ export default function Home() {
                             exit={{ height: 0, opacity: 0 }}
                             className="overflow-hidden"
                           >
-                            <p className="text-gray-600 mb-2">{item.description}</p>
+                            <p className="text-accent mb-2">{item.description}</p>
                             {/* Timeline/Progress Bar */}
                             <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                               <motion.div
