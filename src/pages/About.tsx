@@ -193,19 +193,19 @@ export default function About() {
 
           <div className="relative">
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-inferno/20"></div>
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={milestone.year}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className={`flex items-center gap-8 ${
+                  className={`flex flex-col md:flex-row items-center gap-4 md:gap-8 ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="bg-white rounded-lg p-6 shadow-lg">
+                  <div className={`w-full md:flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                    <div className="bg-white rounded-lg p-5 md:p-6 shadow-lg">
                       <div className="text-2xl font-bold text-red-inferno mb-2">{milestone.year}</div>
                       <h3 className="text-xl font-heading font-semibold text-mystic-navy mb-2">
                         {milestone.event}
@@ -213,8 +213,9 @@ export default function About() {
                       <p className="text-gray-600">{milestone.description}</p>
                     </div>
                   </div>
+                  <div className="flex md:hidden items-center justify-center w-8 h-8 bg-red-inferno rounded-full border-2 border-white shadow-md z-10"></div>
                   <div className="hidden md:block w-4 h-4 bg-red-inferno rounded-full border-4 border-white shadow-lg z-10"></div>
-                  <div className="flex-1"></div>
+                  <div className="hidden md:block flex-1"></div>
                 </motion.div>
               ))}
             </div>

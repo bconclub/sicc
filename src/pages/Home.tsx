@@ -168,22 +168,22 @@ export default function Home() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none"
             >
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
-              <div className="sticky top-0 bg-white border-b border-accent/20 px-6 py-4 flex items-center justify-between">
-                <h2 className="text-2xl font-heading font-bold text-mystic-navy">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
+              <div className="sticky top-0 bg-white border-b border-accent/20 px-5 py-3 flex items-center justify-between">
+                <h2 className="text-xl font-heading font-bold text-mystic-navy">
                   Get Free Consultation
                 </h2>
                 <button
                   onClick={() => setIsConsultationOpen(false)}
-                  className="p-2 hover:bg-accent/10 rounded-full transition-colors"
+                  className="p-1.5 hover:bg-accent/10 rounded-full transition-colors"
                 >
-                  <X className="text-mystic-navy" size={24} />
+                  <X className="text-mystic-navy" size={20} />
                 </button>
               </div>
               
-              <form onSubmit={handleFormSubmit} className="p-6 space-y-6">
+              <form onSubmit={handleFormSubmit} className="p-5 space-y-4">
                 <div>
-                  <label htmlFor="consult-name" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="consult-name" className="block text-sm font-semibold text-gray-700 mb-1.5">
                     Full Name *
                   </label>
                   <input
@@ -193,14 +193,14 @@ export default function Home() {
                     value={formData.name}
                     onChange={handleFormChange}
                     required
-                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                    className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
                     placeholder="Enter your name"
                   />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="consult-phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="consult-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">
                       Phone Number *
                     </label>
                     <input
@@ -210,13 +210,13 @@ export default function Home() {
                       value={formData.phone}
                       onChange={handleFormChange}
                       required
-                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                      className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="consult-email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="consult-email" className="block text-sm font-semibold text-gray-700 mb-1.5">
                       Email Address *
                     </label>
                     <input
@@ -226,14 +226,14 @@ export default function Home() {
                       value={formData.email}
                       onChange={handleFormChange}
                       required
-                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                      className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="consult-project" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="consult-project" className="block text-sm font-semibold text-gray-700 mb-1.5">
                     Project Type *
                   </label>
                   <select
@@ -242,7 +242,7 @@ export default function Home() {
                     value={formData.projectType}
                     onChange={handleFormChange}
                     required
-                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+                    className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
                   >
                     <option value="">Select project type</option>
                     <option value="Apartment">Apartment Project</option>
@@ -260,7 +260,7 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label htmlFor="consult-message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="consult-message" className="block text-sm font-semibold text-gray-700 mb-1.5">
                     Project Details *
                   </label>
                   <textarea
@@ -269,8 +269,8 @@ export default function Home() {
                     value={formData.message}
                     onChange={handleFormChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none"
+                    rows={3}
+                    className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none text-sm"
                     placeholder="Tell us about your project requirements..."
                   />
                 </div>
@@ -278,7 +278,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={isSubmitted}
-                  className={`w-full flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-colors ${
+                  className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-sm transition-colors ${
                     isSubmitted
                       ? 'bg-green-500 text-white'
                       : 'bg-red-inferno text-white hover:bg-red-inferno/90'
@@ -286,12 +286,12 @@ export default function Home() {
                 >
                   {isSubmitted ? (
                     <>
-                      <CheckCircle className="mr-2" size={20} />
+                      <CheckCircle className="mr-2" size={18} />
                       Request Sent Successfully!
                     </>
                   ) : (
                     <>
-                      <Send className="mr-2" size={20} />
+                      <Send className="mr-2" size={18} />
                       Submit Request
                     </>
                   )}
@@ -312,7 +312,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/SICC HEro.mp4" type="video/mp4" />
+            <source src="/Hero Video.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="relative container-custom pt-24 md:pt-40 pb-24 md:pb-32 w-full z-10">
