@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import BrandLogos from '../components/BrandLogos';
 import {
   Building2,
   ArrowRight,
@@ -460,85 +461,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Company Overview */}
-      <section className="section-padding relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-        {/* Opaque "70" Background Watermark */}
-        <div className="absolute top-1/2 left-4 md:left-1/2 md:-translate-x-[600px] -translate-y-1/2 pointer-events-none select-none z-0">
-          <span className="text-[28rem] md:text-[40rem] font-heading font-black text-gray-300/30 md:text-gray-300/20 leading-none">
-            70
-          </span>
-        </div>
-        <div className="container-custom relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="pl-4 md:pl-0"
-            >
-              <div className="inline-block px-4 py-2 bg-red-inferno/10 text-red-inferno rounded-full text-sm font-semibold mb-4">
-                Since 1952
-              </div>
-
-              {/* Prominent "70+" Display */}
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-[8rem] md:text-[10rem] font-heading font-black text-red-inferno leading-none">
-                  70
-                </span>
-                <div className="flex flex-col justify-end pb-4">
-                  <span className="text-5xl md:text-6xl font-heading font-bold text-mystic-navy">+</span>
-                  <span className="text-lg font-semibold text-gray-600 uppercase tracking-wider">Years</span>
-                </div>
-              </div>
-
-              <h2 className="text-3xl md:text-4xl font-heading font-black text-mystic-navy mb-6">
-                of Construction Excellence
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                South India Civil Contractors (SICC) has been at the forefront of construction innovation
-                since 1952. With a strong workforce of over 435 professionals and state-of-the-art equipment,
-                we deliver projects that stand the test of time.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-red-inferno mr-3 mt-1 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Certified and experienced team of professionals</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-red-inferno mr-3 mt-1 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Advanced equipment and modern construction techniques</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-red-inferno mr-3 mt-1 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Timely delivery and quality assurance</span>
-                </li>
-              </ul>
-              <Link
-                to="/about"
-                className="inline-flex items-center text-red-inferno font-semibold hover:text-mystic-navy transition-colors"
-              >
-                Learn More About Us
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="rounded-lg shadow-2xl bg-accent/20 aspect-[4/3] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Building2 className="w-24 h-24 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-semibold">Construction Team Photo</p>
-                  <p className="text-gray-400 text-sm">Placeholder</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Project Types Grid */}
       <section className="section-padding bg-accent/10">
         <div className="container-custom">
@@ -548,7 +470,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Our Expertise
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -595,6 +517,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Brand Logos Section */}
+      <BrandLogos />
+
+      {/* Company Overview */}
+      <section className="section-padding relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+        {/* Opaque "70" Background Watermark */}
+        <div className="absolute top-1/2 left-4 md:left-1/2 md:-translate-x-[600px] -translate-y-1/2 pointer-events-none select-none z-0">
+          <span className="text-[28rem] md:text-[40rem] font-heading font-black text-gray-300/30 md:text-gray-300/20 leading-none">
+            70
+          </span>
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="pl-4 md:pl-0"
+            >
+              <div className="inline-block px-4 py-2 bg-red-inferno/10 text-red-inferno rounded-full text-sm font-semibold mb-4">
+                Since 1952
+              </div>
+
+              {/* Prominent "70+" Display */}
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="text-[8rem] md:text-[10rem] font-heading font-black text-red-inferno leading-none">
+                  70
+                </span>
+                <div className="flex flex-col justify-end pb-4">
+                  <span className="text-5xl md:text-6xl font-heading font-bold text-mystic-navy">+</span>
+                  <span className="text-lg font-semibold text-gray-600 uppercase tracking-wider">Years</span>
+                </div>
+              </div>
+
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-6">
+                70 Years of Excellence
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                South India Civil Contractors (SICC) has been at the forefront of construction innovation
+                since 1952. With a strong workforce of over 435 professionals and state-of-the-art equipment,
+                we deliver projects that stand the test of time.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle className="text-red-inferno mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-600">Certified and experienced team of professionals</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-red-inferno mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-600">Advanced equipment and modern construction techniques</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-red-inferno mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-600">Timely delivery and quality assurance</span>
+                </li>
+              </ul>
+              <Link
+                to="/about"
+                className="inline-flex items-center text-red-inferno font-semibold hover:text-mystic-navy transition-colors"
+              >
+                Learn More About Us
+                <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="rounded-lg shadow-2xl bg-accent/20 aspect-[4/3] flex items-center justify-center">
+                <div className="text-center p-8">
+                  <Building2 className="w-24 h-24 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500 font-semibold">Construction Team Photo</p>
+                  <p className="text-gray-400 text-sm">Placeholder</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Premium Construction Package Section */}
       <section className="section-padding bg-gradient-to-br from-mystic-navy via-red-inferno to-mystic-navy text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -614,7 +618,7 @@ export default function Home() {
               <div className="inline-block px-4 py-2 bg-cream/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-cream border border-cream/40">
                 Premium Solution
               </div>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
                 Premium Construction Package
               </h2>
               <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream">
@@ -692,7 +696,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
               What Our Clients Say
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -740,7 +744,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 text-white">
               Ready to Start Your Project?
             </h2>
             <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">

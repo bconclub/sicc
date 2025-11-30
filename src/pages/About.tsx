@@ -93,7 +93,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-6">
                 Our Story
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
@@ -143,7 +143,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Why Choose SICC
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -183,7 +183,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Our Journey
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -232,7 +232,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
               Our Professional Team
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -305,7 +305,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Our Core Responsibilities
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -434,7 +434,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-6">
                 Serving South India with Excellence
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
@@ -494,7 +494,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Certifications & Credentials
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">

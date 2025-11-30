@@ -102,7 +102,7 @@ export default function AssetsManpower() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Professional Team
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -141,7 +141,7 @@ export default function AssetsManpower() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Equipment & Assets
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -190,7 +190,7 @@ export default function AssetsManpower() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
               Our Capabilities
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -226,7 +226,7 @@ export default function AssetsManpower() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Capacity & Performance
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -262,7 +262,7 @@ export default function AssetsManpower() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-6">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-6">
                 Why Our Team Stands Out
               </h2>
               <div className="space-y-4">

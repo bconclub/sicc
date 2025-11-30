@@ -126,7 +126,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Foundation & Structure
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -171,7 +171,7 @@ export default function PremiumPackage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-8">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-8">
                 Plumbing & Sanitary
               </h2>
 
@@ -247,7 +247,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Electrical Excellence
             </h2>
           </motion.div>
@@ -295,7 +295,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Doors & Windows
             </h2>
           </motion.div>
@@ -355,7 +355,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Flooring & Finishes
             </h2>
           </motion.div>
@@ -413,7 +413,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Premium Painting
             </h2>
           </motion.div>
@@ -465,7 +465,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Material Breakdown
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -529,7 +529,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Why Choose Our Premium Package
             </h2>
           </motion.div>
@@ -571,7 +571,7 @@ export default function PremiumPackage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-6">
               Build Your Dream Home
             </h2>
             <div className="text-6xl md:text-8xl font-heading font-black mb-8 text-cream">

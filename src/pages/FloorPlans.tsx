@@ -226,7 +226,7 @@ export default function FloorPlans() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
               Can't Find What You're Looking For?
             </h2>
             <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">

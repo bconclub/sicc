@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Shield, Award, BookOpen, Layers, HardHat, FileCheck } from 'lucide-react';
+import BrandLogos from '../components/BrandLogos';
 
 const qualityStandards = [
   {
@@ -117,7 +118,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Quality Standards
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -157,7 +158,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Materials Used
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -204,7 +205,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Construction Methodologies
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -248,7 +249,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
               Safety Protocols
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -283,7 +284,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Compliance & Industry Standards
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -313,6 +314,12 @@ export default function TechnicalSpecifications() {
           </div>
         </div>
       </section>
+
+      {/* Brand Logos Section */}
+      <BrandLogos 
+        backgroundColor="bg-white"
+        subtitle="Premium brands and materials we use in all our construction projects"
+      />
     </div>
   );
 }

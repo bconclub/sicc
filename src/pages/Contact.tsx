@@ -66,7 +66,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-heading font-bold text-mystic-navy mb-6">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-6">
                 Send Us a Message
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -195,7 +195,7 @@ export default function Contact() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-heading font-bold text-mystic-navy mb-6">
+                <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-6">
                   Contact Information
                 </h2>
                 <p className="text-gray-600 mb-8">
@@ -284,7 +284,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
               Ready to Start Building?
             </h2>
             <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
