@@ -7,24 +7,25 @@ interface Photo {
   url: string;
   title: string;
   category: string;
+  status: 'Completed' | 'Construction';
 }
 
 const photos: Photo[] = [
-  { id: 1, url: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800', title: 'Luxury Apartment Complex', category: 'Apartment' },
-  { id: 2, url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800', title: 'High Rise Tower', category: 'High Rise' },
-  { id: 3, url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800', title: 'Modern Villa', category: 'Villa' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800', title: 'Commercial Complex', category: 'Commercial' },
-  { id: 5, url: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800', title: 'Construction Progress', category: 'Apartment' },
-  { id: 6, url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800', title: 'Team at Work', category: 'Commercial' },
-  { id: 7, url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800', title: 'Hotel Project', category: 'Hotel' },
-  { id: 8, url: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800', title: 'Hospital Building', category: 'Hospital' },
-  { id: 9, url: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800', title: 'Villa Interior', category: 'Villa' },
-  { id: 10, url: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800', title: 'Foundation Work', category: 'Apartment' },
-  { id: 11, url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800', title: 'Finishing Touches', category: 'Commercial' },
-  { id: 12, url: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800', title: 'College Building', category: 'Educational' },
+  { id: 1, url: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800', title: 'Luxury Apartment Complex', category: 'Apartment', status: 'Completed' },
+  { id: 2, url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800', title: 'High Rise Tower', category: 'High Rise', status: 'Completed' },
+  { id: 3, url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800', title: 'Modern Villa', category: 'Villa', status: 'Completed' },
+  { id: 4, url: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800', title: 'Commercial Complex', category: 'Commercial', status: 'Completed' },
+  { id: 5, url: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800', title: 'Construction Progress', category: 'Apartment', status: 'Construction' },
+  { id: 6, url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800', title: 'Team at Work', category: 'Commercial', status: 'Construction' },
+  { id: 7, url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800', title: 'Hotel Project', category: 'Hotel', status: 'Completed' },
+  { id: 8, url: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800', title: 'Hospital Building', category: 'Hospital', status: 'Completed' },
+  { id: 9, url: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800', title: 'Villa Interior', category: 'Villa', status: 'Completed' },
+  { id: 10, url: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800', title: 'Foundation Work', category: 'Apartment', status: 'Construction' },
+  { id: 11, url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800', title: 'Finishing Touches', category: 'Commercial', status: 'Construction' },
+  { id: 12, url: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800', title: 'College Building', category: 'Educational', status: 'Completed' },
 ];
 
-const categories = ['All', 'Apartment', 'Villa', 'Commercial', 'High Rise', 'Hotel', 'Hospital', 'Educational'];
+const categories = ['All', 'Completed', 'Construction'];
 
 export default function ProjectPhotos() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -32,7 +33,7 @@ export default function ProjectPhotos() {
 
   const filteredPhotos = selectedCategory === 'All'
     ? photos
-    : photos.filter(photo => photo.category === selectedCategory);
+    : photos.filter(photo => photo.status === selectedCategory);
 
   return (
     <div className="bg-white">
