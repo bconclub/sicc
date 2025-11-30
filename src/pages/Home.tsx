@@ -14,6 +14,9 @@ import {
   Shield,
   X,
   Send,
+  Wrench,
+  Zap,
+  Paintbrush,
 } from 'lucide-react';
 // Option 1: All SOLID icons from Font Awesome
 import { FaStar, FaBuilding, FaUsers, FaAward } from 'react-icons/fa';
@@ -588,6 +591,94 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Construction Package Section */}
+      <section className="section-padding bg-gradient-to-br from-mystic-navy via-red-inferno to-mystic-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
+            alt="Premium Construction"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-block px-4 py-2 bg-cream/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-cream border border-cream/40">
+                Premium Solution
+              </div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+                Premium Construction Package
+              </h2>
+              <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream">
+                ₹2,499 <span className="text-2xl md:text-3xl text-white">per sq ft</span>
+              </div>
+              <p className="text-lg md:text-xl mb-6 text-gray-200 leading-relaxed">
+                Comprehensive construction solution with premium materials and expert craftsmanship. 
+                Everything you need for your dream home in one complete package.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle className="text-accent mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-200">Premium branded materials only</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-accent mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-200">Complete end-to-end construction solution</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-accent mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-200">Transparent pricing with no hidden costs</span>
+                </li>
+              </ul>
+              <Link
+                to="/premium-package"
+                className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                Explore Package Details
+                <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
+                    <Building2 className="w-8 h-8 text-cream mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Premium Materials</h3>
+                    <p className="text-sm text-cream/90">ACC Birla, Jindal Steel, and more</p>
+                  </div>
+                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
+                    <Wrench className="w-8 h-8 text-cream mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Branded Fixtures</h3>
+                    <p className="text-sm text-cream/90">Hindware, Cera, Jaguar</p>
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
+                    <Zap className="w-8 h-8 text-cream mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Electrical</h3>
+                    <p className="text-sm text-cream/90">Havells, V-Guard, Anchor</p>
+                  </div>
+                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
+                    <Paintbrush className="w-8 h-8 text-cream mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Painting</h3>
+                    <p className="text-sm text-cream/90">Asian Paints, Birla Opus</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

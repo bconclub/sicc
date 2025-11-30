@@ -10,6 +10,7 @@ import FloorPlans from './pages/FloorPlans';
 import ProjectPhotos from './pages/ProjectPhotos';
 import ProjectVideos from './pages/ProjectVideos';
 import Contact from './pages/Contact';
+import PremiumPackage from './pages/PremiumPackage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/project-photos" element={<ProjectPhotos />} />
           <Route path="/project-videos" element={<ProjectVideos />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/premium-package" element={<PremiumPackage />} />
         </Routes>
       </Layout>
     </Router>
