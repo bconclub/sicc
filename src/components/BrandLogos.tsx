@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 // Brand Logo Item Component
 function BrandLogoItem({ brand }: { brand: { name: string; image: string; category: string } }) {
@@ -7,7 +7,7 @@ function BrandLogoItem({ brand }: { brand: { name: string; image: string; catego
   
   return (
     <div
-      className="flex-shrink-0 w-40 h-24 md:w-48 md:h-28 flex items-center justify-center transition-all duration-300"
+      className="flex-shrink-0 w-28 h-16 md:w-48 md:h-28 flex items-center justify-center transition-all duration-300"
     >
       {!imageError ? (
         <img
@@ -81,7 +81,11 @@ export default function BrandLogos({
   backgroundColor = 'bg-white'
 }: BrandLogosProps) {
   // Duplicate brands for seamless infinite scroll
-  const createInfiniteRow = (brands: typeof brandRows[0]) => [...brands, ...brands, ...brands];
+  // We need enough duplicates so when we move one set width, it loops seamlessly
+  const createInfiniteRow = (brands: typeof brandRows[0]) => {
+    // Create 3 duplicates - moving exactly 1/3 creates perfect seamless loop
+    return [...brands, ...brands, ...brands];
+  };
   
   // Detect mobile screen size for faster animation
   const [isMobile, setIsMobile] = useState(false);
@@ -97,61 +101,95 @@ export default function BrandLogos({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  return (
-    <section className={`section-padding ${backgroundColor}`}>
-      <div className="container-custom">
-        {(title || subtitle) && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            {title && (
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
-                {title}
-              </h2>
-            )}
-            {subtitle && (
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                {subtitle}
-              </p>
-            )}
-          </motion.div>
-        )}
+  // Desktop: 12s, Mobile: 15s (slower)
+  const animationDuration = isMobile ? 15 : 12;
 
-        <div className="space-y-6 overflow-hidden">
-          {brandRows.map((rowBrands, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="relative overflow-hidden"
+  // Memoize styles to prevent regeneration that causes animation restarts
+  const animationStyles = useMemo(() => `
+    @keyframes brand-scroll-left-row-0 {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-33.333333%, 0, 0); }
+    }
+    @keyframes brand-scroll-right-row-1 {
+      0% { transform: translate3d(-33.333333%, 0, 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+    @keyframes brand-scroll-left-row-2 {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-33.333333%, 0, 0); }
+    }
+    .brand-scroll-row-0 {
+      animation: brand-scroll-left-row-0 ${animationDuration}s linear infinite;
+      will-change: transform;
+    }
+    .brand-scroll-row-1 {
+      animation: brand-scroll-right-row-1 ${animationDuration}s linear infinite;
+      will-change: transform;
+    }
+    .brand-scroll-row-2 {
+      animation: brand-scroll-left-row-2 ${animationDuration}s linear infinite;
+      will-change: transform;
+    }
+  `, [animationDuration]);
+
+  return (
+    <>
+      <style>{animationStyles}</style>
+      <section className={`section-padding ${backgroundColor}`}>
+        <div className="container-custom">
+          {(title || subtitle) && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
             >
-              {/* Infinite scroll animation */}
-              <motion.div
-                className="flex gap-8 items-center"
-                animate={{
-                  x: rowIndex % 2 === 0 
-                    ? ['0%', '-33.333%']  // Move left for even rows
-                    : ['-33.333%', '0%'], // Move right for odd rows
-                }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                    duration: isMobile ? 15 : 30,
-                    ease: 'linear',
-                  },
-                }}
-              >
-                {createInfiniteRow(rowBrands).map((brand, index) => (
-                  <BrandLogoItem key={`${brand.name}-${index}`} brand={brand} />
-                ))}
-              </motion.div>
-            </div>
-          ))}
+              {title && (
+                <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+                  {title}
+                </h2>
+              )}
+              {subtitle && (
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  {subtitle}
+                </p>
+              )}
+            </motion.div>
+          )}
+
+          <div className="space-y-6 overflow-hidden">
+            {brandRows.map((rowBrands, rowIndex) => {
+              const infiniteRow = createInfiniteRow(rowBrands);
+              const animationClass = rowIndex === 0 
+                ? 'brand-scroll-row-0' 
+                : rowIndex === 1 
+                ? 'brand-scroll-row-1' 
+                : 'brand-scroll-row-2';
+              
+              return (
+                <div
+                  key={rowIndex}
+                  className="relative overflow-hidden"
+                >
+                  {/* Infinite scroll animation - CSS based for seamless looping */}
+                  <div
+                    className={`flex gap-4 md:gap-8 items-center ${animationClass}`}
+                    style={{ 
+                      display: 'flex',
+                      width: 'max-content'
+                    }}
+                  >
+                    {infiniteRow.map((brand, index) => (
+                      <BrandLogoItem key={`${brand.name}-${index}`} brand={brand} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
