@@ -133,7 +133,7 @@ export default function Navbar() {
                               className={`block px-4 py-2 text-sm transition-colors ${
                                 location.pathname === subItem.href
                                   ? 'text-white bg-red-inferno'
-                                  : 'text-gray-200 hover:text-white hover:bg-accent/80'
+                                  : 'text-white hover:bg-red-inferno/80'
                               }`}
                             >
                               {subItem.name}
@@ -238,7 +238,7 @@ export default function Navbar() {
                                   className={`block px-3 py-2 text-sm rounded-md transition-colors ${
                                     location.pathname === subItem.href
                                       ? 'text-white bg-red-inferno'
-                                      : 'text-red-inferno hover:text-white hover:bg-red-inferno'
+                                      : 'text-white hover:bg-red-inferno/80'
                                   }`}
                                 >
                                   {subItem.name}
