@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Brand Logo Item Component
 function BrandLogoItem({ brand }: { brand: { name: string; image: string; category: string } }) {
@@ -82,6 +82,20 @@ export default function BrandLogos({
 }: BrandLogosProps) {
   // Duplicate brands for seamless infinite scroll
   const createInfiniteRow = (brands: typeof brandRows[0]) => [...brands, ...brands, ...brands];
+  
+  // Detect mobile screen size for faster animation
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section className={`section-padding ${backgroundColor}`}>
@@ -124,7 +138,7 @@ export default function BrandLogos({
                   x: {
                     repeat: Infinity,
                     repeatType: 'loop',
-                    duration: 30,
+                    duration: isMobile ? 15 : 30,
                     ease: 'linear',
                   },
                 }}
