@@ -101,8 +101,8 @@ export default function BrandLogos({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Desktop: 12s, Mobile: 15s (slower)
-  const animationDuration = isMobile ? 15 : 12;
+  // Desktop: 16s, Mobile: 15s
+  const animationDuration = isMobile ? 15 : 16;
 
   // Memoize styles to prevent regeneration that causes animation restarts
   const animationStyles = useMemo(() => `
