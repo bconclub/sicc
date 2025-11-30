@@ -331,7 +331,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
                 onClick={() => setIsConsultationOpen(true)}
-                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2" size={20} />
