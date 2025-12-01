@@ -1,1 +1,0 @@
-Upload project photos for villa category here. Supported formats: JPG, PNG, WEBP

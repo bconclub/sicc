@@ -1,1 +1,0 @@
-Upload project photos for educational category here. Supported formats: JPG, PNG, WEBP
