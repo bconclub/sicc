@@ -11,8 +11,7 @@ import {
   Calendar,
   FileText,
   DollarSign,
-  Clock,
-  MapPin
+  Clock
 } from 'lucide-react';
 
 const values = [

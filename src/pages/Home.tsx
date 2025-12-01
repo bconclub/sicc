@@ -406,7 +406,7 @@ export default function Home() {
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-mystic-navy/60 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <p className="text-sm font-semibold tracking-wider uppercase mb-2 text-red-inferno">Featured Expertise</p>
+                <p className="text-sm font-semibold tracking-wider uppercase mb-2 text-cream">Featured Expertise</p>
                 <h3 className="text-2xl font-heading font-bold">{expertiseData[activeFeature].title}</h3>
               </div>
             </div>
