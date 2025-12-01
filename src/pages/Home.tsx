@@ -552,7 +552,7 @@ export default function Home() {
               </div>
 
               <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-6">
-                70 Years of Excellence
+                Years of Excellence
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 South India Civil Contractors (SICC) has been at the forefront of construction innovation
@@ -587,12 +587,12 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="rounded-lg shadow-2xl bg-accent/20 aspect-[4/3] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Building2 className="w-24 h-24 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-semibold">Construction Team Photo</p>
-                  <p className="text-gray-400 text-sm">Placeholder</p>
-                </div>
+              <div className="rounded-lg shadow-2xl overflow-hidden">
+                <img
+                  src="/Team.webp"
+                  alt="SICC Team"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>
