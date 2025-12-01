@@ -118,14 +118,14 @@ export default function About() {
               className="grid grid-cols-2 gap-4"
             >
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400"
-                alt="Construction site"
-                className="rounded-lg shadow-lg"
+                src="/Old Construction.webp"
+                alt="Old Construction"
+                className="rounded-lg shadow-lg w-full h-full object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400"
-                alt="Team work"
-                className="rounded-lg shadow-lg mt-8"
+                src="/Bangalore high rise.webp"
+                alt="Bangalore High Rise"
+                className="rounded-lg shadow-lg mt-8 w-full h-full object-cover"
               />
             </motion.div>
           </div>
@@ -463,19 +463,12 @@ export default function About() {
               className="relative"
             >
               <div className="bg-white rounded-lg p-8 shadow-xl border-2 border-mystic-navy/20">
-                <div className="aspect-video rounded-lg overflow-hidden">
+                <div className="rounded-lg overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop"
-                    alt="South India Map"
-                    className="w-full h-full object-cover"
+                    src="/South India.webp"
+                    alt="South India - Our Service Area"
+                    className="w-full h-auto object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mystic-navy/40 to-transparent flex items-end justify-center pb-4">
-                    <div className="text-center">
-                      <MapPin className="w-12 h-12 text-white mx-auto mb-2" />
-                      <div className="text-xl font-heading font-bold text-white">South India</div>
-                      <div className="text-sm text-gray-100 mt-1">Our Service Area</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </motion.div>

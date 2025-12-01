@@ -18,6 +18,7 @@ import {
   Wrench,
   Zap,
   Paintbrush,
+  Play,
 } from 'lucide-react';
 // Option 1: All SOLID icons from Font Awesome
 import { FaStar, FaBuilding, FaUsers, FaAward } from 'react-icons/fa';
@@ -697,6 +698,171 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Work Section - Project Photos Gallery Teaser */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+              Our <span className="text-red-inferno">Work</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Explore our portfolio of completed projects across residential, commercial, and construction categories
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[
+              '/project-photos/residential/Residential 001.webp',
+              '/project-photos/residential/Residential 003.webp',
+              '/project-photos/residential/Residential 004.webp',
+              '/project-photos/residential/Residential 005.webp',
+            ].map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
+              >
+                <img
+                  src={image}
+                  alt={`Project ${index + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/project-photos"
+              className="inline-flex items-center px-8 py-4 bg-mystic-navy text-white font-semibold rounded-lg hover:bg-mystic-navy/90 transition-colors"
+            >
+              View All Projects
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Videos Section */}
+      <section className="section-padding bg-mother-pearl">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+              Project <span className="text-red-inferno">Videos</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Watch our construction journey through detailed project videos and testimonials
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {[
+              { vimeoId: '1141959737', title: 'SICC Project Video' },
+              { vimeoId: '1141962178', title: 'SICC Project Video 2' },
+              { vimeoId: '1141962617', title: 'SICC Project Video 3' },
+            ].map((video, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative aspect-video overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
+              >
+                <img
+                  src={`https://vumbnail.com/${video.vimeoId}.jpg`}
+                  alt={video.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="w-16 h-16 border-2 border-cream rounded-full flex items-center justify-center">
+                    <Play className="text-cream ml-1" size={28} fill="currentColor" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/project-videos"
+              className="inline-flex items-center px-8 py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
+            >
+              View All Videos
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Renders Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+              3D <span className="text-red-inferno">Renders</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Explore our photorealistic 3D architectural renders and visualizations
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[
+              '/project-photos/3D renders/Render 001.webp',
+              '/project-photos/3D renders/Render 002.webp',
+              '/project-photos/3D renders/Render 003.webp',
+              '/project-photos/3D renders/Render 004.webp',
+            ].map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
+              >
+                <img
+                  src={image}
+                  alt={`3D Render ${index + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/floor-plans"
+              className="inline-flex items-center px-8 py-4 bg-mystic-navy text-white font-semibold rounded-lg hover:bg-mystic-navy/90 transition-colors"
+            >
+              View All 3D Renders
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
           </div>
         </div>
       </section>
