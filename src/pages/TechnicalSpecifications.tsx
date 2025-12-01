@@ -26,8 +26,8 @@ const qualityStandards = [
 ];
 
 const materials = [
-  { category: 'Concrete', specs: ['M20, M25, M30 Grade', 'Ready-mix concrete', 'Tested for strength'] },
-  { category: 'Steel', specs: ['Fe 415/Fe 500 TMT bars', 'IS certified', 'Corrosion resistant'] },
+  { category: 'Concrete', specs: ['M35, M40 Grade', 'Ready-mix concrete', 'Tested for strength'] },
+  { category: 'Steel', specs: ['Fe 415/Fe 550 TMT bars', 'IS certified', 'Corrosion resistant'] },
   { category: 'Cement', specs: ['OPC 43 & 53 Grade', 'Premium brands', 'Quality tested'] },
   { category: 'Bricks', specs: ['First class bricks', 'High compressive strength', 'Uniform size'] },
   { category: 'Tiles', specs: ['Vitrified & ceramic', 'Premium brands', 'Variety of finishes'] },

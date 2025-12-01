@@ -210,7 +210,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-mystic-navy mb-1">Office Address</h3>
                     <p className="text-gray-600">
-                      South India Civil Contract<br />
+                      South India Civil Contractor<br />
                       No 35, 1st Floor, 1st Stage, 2nd Phase<br />
                       Chandra Layout, Bangalore-560040
                     </p>
