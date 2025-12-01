@@ -184,11 +184,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className={`lg:hidden overflow-hidden ${
-                isHomePage 
-                  ? 'bg-white/20 backdrop-blur-md' 
-                  : 'bg-mystic-navy/80 backdrop-blur-md'
-              }`}
+              className="lg:hidden overflow-hidden bg-cream/90 backdrop-blur-md"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {navigation.map((item) => {
@@ -206,9 +202,7 @@ export default function Navbar() {
                           className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
                             isActive
                               ? 'text-white bg-red-inferno'
-                              : isScrolled
-                                ? 'text-[#1B3A52] hover:text-white hover:bg-red-inferno/80'
-                                : 'text-white hover:bg-white/20'
+                              : 'text-mystic-navy hover:bg-red-inferno/10'
                           }`}
                         >
                           <span>{item.name}</span>
@@ -216,7 +210,7 @@ export default function Navbar() {
                             size={20}
                             className={`transition-transform ${
                               isDropdownOpen ? 'rotate-180' : ''
-                            }`}
+                            } ${isActive ? 'text-white' : 'text-mystic-navy'}`}
                           />
                         </button>
                         <AnimatePresence>
@@ -238,7 +232,7 @@ export default function Navbar() {
                                   className={`block px-3 py-2 text-sm rounded-md transition-colors ${
                                     location.pathname === subItem.href
                                       ? 'text-white bg-red-inferno'
-                                      : 'text-white hover:bg-red-inferno/80'
+                                      : 'text-mystic-navy hover:bg-red-inferno/10'
                                   }`}
                                 >
                                   {subItem.name}
@@ -261,9 +255,7 @@ export default function Navbar() {
                     className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                       location.pathname === item.href
                         ? 'text-white bg-red-inferno'
-                        : isScrolled
-                          ? 'text-[#1B3A52] hover:text-white hover:bg-red-inferno/80'
-                          : 'text-white hover:bg-white/20'
+                        : 'text-mystic-navy hover:bg-red-inferno/10'
                     }`}
                   >
                     {item.name}
