@@ -15,15 +15,18 @@ const photos: Photo[] = [
   { id: 1, url: '/project-photos/residential/Residential 001.webp', title: 'Residential Project 001', category: 'Residential', status: 'Completed' },
   { id: 3, url: '/project-photos/residential/Residential 003.webp', title: 'Residential Project 003', category: 'Residential', status: 'Completed' },
   { id: 4, url: '/project-photos/residential/Residential 004.webp', title: 'Residential Project 004', category: 'Residential', status: 'Completed' },
+  { id: 36, url: '/project-photos/residential/Residentian 015.webp', title: 'Residential Project 015', category: 'Residential', status: 'Completed' },
+  { id: 37, url: '/project-photos/residential/Residentian 016.webp', title: 'Residential Project 016', category: 'Residential', status: 'Completed' },
+  { id: 38, url: '/project-photos/residential/Residentian 017.webp', title: 'Residential Project 017', category: 'Residential', status: 'Completed' },
   { id: 5, url: '/project-photos/residential/Residential 005.webp', title: 'Residential Project 005', category: 'Residential', status: 'Completed' },
   { id: 6, url: '/project-photos/residential/Residential 006.webp', title: 'Residential Project 006', category: 'Residential', status: 'Completed' },
-  { id: 7, url: '/project-photos/residential/Residential 007.webp', title: 'Residential Project 007', category: 'Residential', status: 'Completed' },
   { id: 2, url: '/project-photos/residential/Residential 002.webp', title: 'Residential Project 002', category: 'Residential', status: 'Completed' },
   { id: 8, url: '/project-photos/residential/Residential 008.jpg', title: 'Residential Project 008', category: 'Residential', status: 'Completed' },
   { id: 9, url: '/project-photos/residential/Residential 009.webp', title: 'Residential Project 009', category: 'Residential', status: 'Completed' },
   { id: 10, url: '/project-photos/residential/Residential 010.webp', title: 'Residential Project 010', category: 'Residential', status: 'Completed' },
   { id: 11, url: '/project-photos/residential/Residential 011.webp', title: 'Residential Project 011', category: 'Residential', status: 'Completed' },
   { id: 12, url: '/project-photos/residential/Residential 012.webp', title: 'Residential Project 012', category: 'Residential', status: 'Completed' },
+  { id: 7, url: '/project-photos/residential/Residential 007.webp', title: 'Residential Project 007', category: 'Residential', status: 'Completed' },
   // Commercial Projects
   { id: 13, url: '/project-photos/commercial/Commercial 001.jpg', title: 'Commercial Project 001', category: 'Commercial', status: 'Completed' },
   { id: 14, url: '/project-photos/commercial/commercial 002.jpg', title: 'Commercial Project 002', category: 'Commercial', status: 'Completed' },
@@ -113,21 +116,22 @@ export default function ProjectPhotos() {
       {/* Photo Gallery */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
             {filteredPhotos.map((photo, index) => (
               <motion.div
                 key={photo.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="group relative aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                {...(index === 0 
+                  ? { animate: { opacity: 1, y: 0 }, transition: { delay: 0.1 } }
+                  : { whileInView: { opacity: 1, y: 0 }, transition: { delay: index * 0.05 }, viewport: { once: true } }
+                )}
+                className="group relative mb-4 break-inside-avoid overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow cursor-pointer"
                 onClick={() => setSelectedPhoto(photo)}
               >
                 <img
                   src={photo.url}
                   alt={photo.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <ZoomIn className="text-white" size={32} />

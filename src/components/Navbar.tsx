@@ -22,7 +22,7 @@ const navigation = [
     dropdown: [
       { name: 'Technical Specifications', href: '/technical-specifications' },
   { name: 'Assets & Manpower', href: '/assets-manpower' },
-  { name: 'Floor Plans', href: '/floor-plans' },
+      { name: '3D Renders', href: '/floor-plans' },
     ],
   },
   { name: 'Contact Us', href: '/contact' },

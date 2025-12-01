@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/floor-plans" className="text-gray-300 hover:text-red-inferno transition-colors">
-                  Floor Plans
+                  3D Renders
                 </Link>
               </li>
             </ul>

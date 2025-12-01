@@ -1,59 +1,54 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Search, Download, Eye } from 'lucide-react';
+import { X, ZoomIn, Download } from 'lucide-react';
 
-interface FloorPlan {
+interface Render {
   id: number;
+  url: string;
   title: string;
-  bedrooms: string;
-  builtUpArea: string;
-  plotSize: string;
-  type: string;
-  image: string;
-  dimensions: string;
 }
 
-const floorPlansData: FloorPlan[] = [
-  { id: 1, title: '1BHK Compact', bedrooms: '1BHK', builtUpArea: '650', plotSize: '30x40', type: 'Residential', image: 'https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=400', dimensions: '25x26 ft' },
-  { id: 2, title: '2BHK Modern', bedrooms: '2BHK', builtUpArea: '1100', plotSize: '30x50', type: 'Residential', image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400', dimensions: '30x37 ft' },
-  { id: 3, title: '2BHK Premium', bedrooms: '2BHK', builtUpArea: '1250', plotSize: '40x50', type: 'Residential', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400', dimensions: '35x36 ft' },
-  { id: 4, title: '3BHK Deluxe', bedrooms: '3BHK', builtUpArea: '1650', plotSize: '40x60', type: 'Residential', image: 'https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=400', dimensions: '40x41 ft' },
-  { id: 5, title: '3BHK Luxury', bedrooms: '3BHK', builtUpArea: '1850', plotSize: '50x60', type: 'Residential', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400', dimensions: '45x41 ft' },
-  { id: 6, title: '4BHK Villa', bedrooms: '4BHK', builtUpArea: '2500', plotSize: '60x80', type: 'Villa', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400', dimensions: '50x50 ft' },
-  { id: 7, title: 'Duplex Villa', bedrooms: '4BHK', builtUpArea: '3200', plotSize: '60x90', type: 'Villa', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400', dimensions: '55x58 ft' },
-  { id: 8, title: 'Office Space', bedrooms: 'N/A', builtUpArea: '2000', plotSize: '50x70', type: 'Commercial', image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400', dimensions: '45x45 ft' },
-  { id: 9, title: 'Retail Space', bedrooms: 'N/A', builtUpArea: '1500', plotSize: '40x60', type: 'Commercial', image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400', dimensions: '40x38 ft' },
-  { id: 10, title: '1BHK Studio', bedrooms: '1BHK', builtUpArea: '550', plotSize: '25x30', type: 'Residential', image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400', dimensions: '22x25 ft' },
-  { id: 11, title: '2BHK Economy', bedrooms: '2BHK', builtUpArea: '950', plotSize: '30x40', type: 'Residential', image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400', dimensions: '28x34 ft' },
-  { id: 12, title: 'Penthouse', bedrooms: '4BHK', builtUpArea: '3500', plotSize: '70x90', type: 'Villa', image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400', dimensions: '60x58 ft' },
+const renders: Render[] = [
+  { id: 1, url: '/project-photos/3D renders/Render 001.webp', title: '3D Render 001' },
+  { id: 2, url: '/project-photos/3D renders/Render 002.webp', title: '3D Render 002' },
+  { id: 3, url: '/project-photos/3D renders/Render 003.webp', title: '3D Render 003' },
+  { id: 4, url: '/project-photos/3D renders/Render 004.webp', title: '3D Render 004' },
+  { id: 5, url: '/project-photos/3D renders/Render 005.webp', title: '3D Render 005' },
+  { id: 6, url: '/project-photos/3D renders/Render 006.webp', title: '3D Render 006' },
+  { id: 7, url: '/project-photos/3D renders/Render 007.webp', title: '3D Render 007' },
+  { id: 8, url: '/project-photos/3D renders/Render 008.webp', title: '3D Render 008' },
+  { id: 9, url: '/project-photos/3D renders/Render 009.webp', title: '3D Render 009' },
+  { id: 10, url: '/project-photos/3D renders/Render 010.webp', title: '3D Render 010' },
+  { id: 11, url: '/project-photos/3D renders/Render 011.webp', title: '3D Render 011' },
+  { id: 12, url: '/project-photos/3D renders/Render 012.webp', title: '3D Render 012' },
+  { id: 13, url: '/project-photos/3D renders/Render 013.webp', title: '3D Render 013' },
+  { id: 14, url: '/project-photos/3D renders/Render 014.webp', title: '3D Render 014' },
+  { id: 15, url: '/project-photos/3D renders/Render 015.webp', title: '3D Render 015' },
+  { id: 16, url: '/project-photos/3D renders/Render 016.webp', title: '3D Render 016' },
+  { id: 17, url: '/project-photos/3D renders/Render 017.webp', title: '3D Render 017' },
+  { id: 18, url: '/project-photos/3D renders/Render 018.webp', title: '3D Render 018' },
+  { id: 19, url: '/project-photos/3D renders/Render 019.webp', title: '3D Render 019' },
+  { id: 20, url: '/project-photos/3D renders/Render 020.webp', title: '3D Render 020' },
+  { id: 21, url: '/project-photos/3D renders/Render 021.webp', title: '3D Render 021' },
+  { id: 22, url: '/project-photos/3D renders/Render 022.webp', title: '3D Render 022' },
+  { id: 23, url: '/project-photos/3D renders/Render 023.webp', title: '3D Render 023' },
+  { id: 24, url: '/project-photos/3D renders/Render 024.webp', title: '3D Render 024' },
+  { id: 25, url: '/project-photos/3D renders/Render 025.webp', title: '3D Render 025' },
+  { id: 26, url: '/project-photos/3D renders/Render 026.webp', title: '3D Render 026' },
 ];
 
 export default function FloorPlans() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedBedrooms, setSelectedBedrooms] = useState('All');
-  const [selectedType, setSelectedType] = useState('All');
-  const [areaRange, setAreaRange] = useState('All');
+  const [selectedRender, setSelectedRender] = useState<Render | null>(null);
 
-  const bedroomOptions = ['All', '1BHK', '2BHK', '3BHK', '4BHK', 'N/A'];
-  const typeOptions = ['All', 'Residential', 'Commercial', 'Villa'];
-  const areaOptions = ['All', 'Below 1000', '1000-1500', '1500-2500', 'Above 2500'];
-
-  const filteredPlans = floorPlansData.filter(plan => {
-    const matchesSearch = plan.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesBedrooms = selectedBedrooms === 'All' || plan.bedrooms === selectedBedrooms;
-    const matchesType = selectedType === 'All' || plan.type === selectedType;
-
-    let matchesArea = true;
-    if (areaRange !== 'All') {
-      const area = parseInt(plan.builtUpArea);
-      if (areaRange === 'Below 1000') matchesArea = area < 1000;
-      else if (areaRange === '1000-1500') matchesArea = area >= 1000 && area <= 1500;
-      else if (areaRange === '1500-2500') matchesArea = area >= 1500 && area <= 2500;
-      else if (areaRange === 'Above 2500') matchesArea = area > 2500;
-    }
-
-    return matchesSearch && matchesBedrooms && matchesType && matchesArea;
-  });
+  const handleDownload = (e: React.MouseEvent, render: Render) => {
+    e.stopPropagation();
+    const link = document.createElement('a');
+    link.href = render.url;
+    link.download = render.title.replace(/\s+/g, '-') + '.webp';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="bg-white">
@@ -61,8 +56,8 @@ export default function FloorPlans() {
       <section className="relative bg-mystic-navy text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img
-            src="https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=1920"
-            alt="Floor Plans"
+            src="/project-photos/3D renders/Render 001.webp"
+            alt="3D Renders"
             className="w-full h-full object-cover"
           />
         </div>
@@ -73,150 +68,98 @@ export default function FloorPlans() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Floor <span className="text-red-inferno">Plans</span>
+              3D <span className="text-cream">Renders</span>
             </h1>
             <p className="text-xl text-gray-200">
-              Explore our diverse range of floor plans for every need and budget
+              Explore our photorealistic 3D architectural renders and visualizations
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Search & Filter Section */}
-      <section className="bg-accent/10 py-8 sticky top-20 z-40 shadow-md">
+      {/* 3D Renders Masonry Gallery */}
+      <section className="section-padding">
         <div className="container-custom">
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {/* Search */}
-              <div className="relative lg:col-span-2">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                <input
-                  type="text"
-                  placeholder="Search floor plans..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+            {renders.map((render, index) => (
+              <motion.div
+                key={render.id}
+                initial={{ opacity: 0, y: 20 }}
+                {...(index === 0 
+                  ? { animate: { opacity: 1, y: 0 }, transition: { delay: 0.1 } }
+                  : { whileInView: { opacity: 1, y: 0 }, transition: { delay: index * 0.05 }, viewport: { once: true } }
+                )}
+                className="group relative mb-4 break-inside-avoid overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow cursor-pointer"
+                onClick={() => setSelectedRender(render)}
+              >
+                <img
+                  src={render.url}
+                  alt={render.title}
+                  className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-              </div>
-
-              {/* Bedrooms Filter */}
-              <select
-                value={selectedBedrooms}
-                onChange={(e) => setSelectedBedrooms(e.target.value)}
-                className="px-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-              >
-                {bedroomOptions.map(option => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-
-              {/* Type Filter */}
-              <select
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-                className="px-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-              >
-                {typeOptions.map(option => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-
-              {/* Area Range Filter */}
-              <select
-                value={areaRange}
-                onChange={(e) => setAreaRange(e.target.value)}
-                className="px-4 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-              >
-                {areaOptions.map(option => (
-                  <option key={option} value={option}>
-                    {option === 'All' ? 'All Areas' : `${option} sqft`}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="mt-4 text-sm text-gray-600">
-              Showing {filteredPlans.length} of {floorPlansData.length} floor plans
-            </div>
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedRender(render);
+                    }}
+                    className="p-3 bg-white/20 hover:bg-white/30 rounded-full transition-colors backdrop-blur-sm"
+                    title="View full size"
+                  >
+                    <ZoomIn className="text-white" size={24} />
+                  </button>
+                  <button
+                    onClick={(e) => handleDownload(e, render)}
+                    className="p-3 bg-white/20 hover:bg-white/30 rounded-full transition-colors backdrop-blur-sm"
+                    title="Download image"
+                  >
+                    <Download className="text-white" size={24} />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Floor Plans Grid */}
-      <section className="section-padding">
-        <div className="container-custom">
-          {filteredPlans.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-gray-500 text-lg">No floor plans match your criteria. Try adjusting your filters.</p>
+      {/* Lightbox Modal */}
+      {selectedRender && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedRender(null)}
+        >
+          <button
+            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10"
+            onClick={() => setSelectedRender(null)}
+          >
+            <X className="text-white" size={24} />
+          </button>
+          <div className="max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              src={selectedRender.url}
+              alt={selectedRender.title}
+              className="w-full h-auto rounded-lg shadow-2xl"
+            />
+            <div className="mt-4 flex justify-center">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDownload(e, selectedRender);
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors backdrop-blur-sm"
+              >
+                <Download size={20} />
+                Download Image
+              </button>
             </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredPlans.map((plan, index) => (
-                <motion.div
-                  key={plan.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-                >
-                  <div className="relative h-48 overflow-hidden group">
-                    <img
-                      src={plan.image}
-                      alt={plan.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
-                      <button className="p-2 bg-white rounded-full hover:bg-accent/15 transition-colors">
-                        <Eye className="text-mystic-navy" size={20} />
-                      </button>
-                      <button className="p-2 bg-white rounded-full hover:bg-accent/15 transition-colors">
-                        <Download className="text-mystic-navy" size={20} />
-                      </button>
-                    </div>
-                    <div className="absolute top-3 right-3">
-                      <span className="px-3 py-1 bg-red-inferno text-white text-xs font-semibold rounded-full">
-                        {plan.type}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-heading font-semibold text-mystic-navy mb-3">
-                      {plan.title}
-                    </h3>
-                    <div className="space-y-2 text-sm text-gray-600">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Bedrooms:</span>
-                        <span className="font-semibold text-mystic-navy">{plan.bedrooms}</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Built-up Area:</span>
-                        <span className="font-semibold text-mystic-navy">{plan.builtUpArea} sqft</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Dimensions:</span>
-                        <span className="font-semibold text-mystic-navy">{plan.dimensions}</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500">Plot Size:</span>
-                        <span className="font-semibold text-mystic-navy">{plan.plotSize}</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 flex space-x-2">
-                      <button className="flex-1 px-4 py-2 bg-mystic-navy text-white text-sm font-semibold rounded-lg hover:bg-mystic-navy/90 transition-colors">
-                        View Details
-                      </button>
-                      <button className="px-4 py-2 bg-accent/15 text-gray-700 text-sm font-semibold rounded-lg hover:bg-accent/25 transition-colors">
-                        <Download size={16} />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </motion.div>
+      )}
 
       {/* CTA Section */}
       <section className="section-padding bg-mystic-navy text-white">
@@ -227,16 +170,16 @@ export default function FloorPlans() {
             viewport={{ once: true }}
           >
             <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
-              Can't Find What You're Looking For?
+              Need Custom 3D Renders?
             </h2>
             <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-              We can create custom floor plans tailored to your specific requirements
+              We can create custom 3D visualizations tailored to your specific project requirements
             </p>
             <a
               href="/contact"
               className="inline-block px-8 py-4 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
             >
-              Request Custom Plan
+              Request Custom Render
             </a>
           </motion.div>
         </div>
