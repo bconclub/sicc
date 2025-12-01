@@ -618,10 +618,10 @@ export default function Home() {
               <div className="inline-block px-4 py-2 bg-cream/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-cream border border-cream/40">
                 Premium Solution
               </div>
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
                 Premium Construction Package
               </h2>
-              <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream">
+              <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream leading-tight">
                 ₹2,499 <span className="text-2xl md:text-3xl text-white">per sq ft</span>
               </div>
               <p className="text-lg md:text-xl mb-6 text-gray-200 leading-relaxed">
@@ -658,27 +658,41 @@ export default function Home() {
             >
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
-                    <Building2 className="w-8 h-8 text-cream mb-3" />
-                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Premium Materials</h3>
-                    <p className="text-sm text-cream/90">ACC Birla, Jindal Steel, and more</p>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Building2 className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Premium Materials</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/acc.png" alt="ACC" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/birlasuper.png" alt="Birla Super" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/jindalsteel.png" alt="Jindal Steel" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
                   </div>
-                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
-                    <Wrench className="w-8 h-8 text-cream mb-3" />
-                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Branded Fixtures</h3>
-                    <p className="text-sm text-cream/90">Hindware, Cera, Jaguar</p>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Wrench className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Branded Fixtures</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/hindware.png" alt="Hindware" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/cera.png" alt="Cera" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/jaguar.png" alt="Jaguar" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
-                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
-                    <Zap className="w-8 h-8 text-cream mb-3" />
-                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Electrical</h3>
-                    <p className="text-sm text-cream/90">Havells, V-Guard, Anchor</p>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Zap className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Electrical</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/havels.png" alt="Havells" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/anchor.png" alt="Anchor" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
                   </div>
-                  <div className="bg-cream/20 backdrop-blur-sm rounded-lg p-6 border border-accent/40">
-                    <Paintbrush className="w-8 h-8 text-cream mb-3" />
-                    <h3 className="text-lg font-heading font-semibold mb-2 text-white">Painting</h3>
-                    <p className="text-sm text-cream/90">Asian Paints, Birla Opus</p>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Paintbrush className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Painting</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/asianpaints.png" alt="Asian Paints" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/berger.png" alt="Berger" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
                   </div>
                 </div>
               </div>
