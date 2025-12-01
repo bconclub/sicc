@@ -20,7 +20,7 @@ const services = [
     features: ['Custom design execution', 'Premium materials', 'Landscape integration']
   },
   {
-    image: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400&h=300&fit=crop',
+    image: '/Commercial card.webp',
     title: 'Commercial Building Civil Contractor',
     description: 'Professional commercial construction services for offices, retail spaces, and business complexes.',
     features: ['Code compliance', 'Modern infrastructure', 'Energy efficiency']

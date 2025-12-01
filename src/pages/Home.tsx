@@ -72,7 +72,7 @@ const projectTypes = [
     icon: Building2,
     title: 'Commercial Buildings',
     description: 'State-of-the-art commercial infrastructure',
-    image: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=500'
+    image: '/Commercial card.webp'
   },
   {
     icon: Hotel,
