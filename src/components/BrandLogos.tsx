@@ -140,8 +140,7 @@ export default function BrandLogos({
           {(title || subtitle) && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               className="text-center mb-12"
             >
               {title && (

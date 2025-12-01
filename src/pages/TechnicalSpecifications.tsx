@@ -109,13 +109,18 @@ export default function TechnicalSpecifications() {
         </div>
       </section>
 
+      {/* Brand Logos Section */}
+      <BrandLogos 
+        backgroundColor="bg-white"
+        subtitle="Premium brands and materials we use in all our construction projects"
+      />
+
       {/* Quality Standards */}
       <section className="section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
             <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
@@ -314,12 +319,6 @@ export default function TechnicalSpecifications() {
           </div>
         </div>
       </section>
-
-      {/* Brand Logos Section */}
-      <BrandLogos 
-        backgroundColor="bg-white"
-        subtitle="Premium brands and materials we use in all our construction projects"
-      />
     </div>
   );
 }
