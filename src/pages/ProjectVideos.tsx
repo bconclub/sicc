@@ -44,6 +44,36 @@ const videos: Video[] = [
     views: '12.5K',
     vimeoId: '1141962617'
   },
+  {
+    id: 4,
+    title: 'SICC Project Video 4',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1141978917.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1141978917'
+  },
+  {
+    id: 5,
+    title: 'SICC Project Video 5',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1141979398.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1141979398'
+  },
+  {
+    id: 6,
+    title: 'SICC Project Video 6',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1141980834.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1141980834'
+  },
 ];
 
 export default function ProjectVideos() {
@@ -56,10 +86,26 @@ export default function ProjectVideos() {
       // Vimeo sends messages from player.vimeo.com
       if (event.origin !== 'https://player.vimeo.com') return;
       
-      if (event.data && event.data.event === 'ended') {
-        // Video ended, reset to thumbnail
-        setPlayingVideoId(null);
-        setLoadedVideoId(null);
+      const data = event.data;
+      // Handle Vimeo event messages - check for ended event
+      if (data && typeof data === 'object') {
+        // Vimeo sends events in different formats
+        // Format 1: { event: 'ended' }
+        // Format 2: { event: 'finish' }
+        // Format 3: { event: 'playProgress', data: { seconds: ..., percent: ... } }
+        if (data.event === 'ended' || data.event === 'finish') {
+          // Video ended, reset to thumbnail immediately
+          setPlayingVideoId(null);
+          setLoadedVideoId(null);
+        }
+        // Also check for playProgress near the end (99%+) as fallback
+        if (data.event === 'playProgress' && data.data && data.data.percent >= 0.99) {
+          // Video is at the end, reset to thumbnail
+          setTimeout(() => {
+            setPlayingVideoId(null);
+            setLoadedVideoId(null);
+          }, 500);
+        }
       }
     };
 
@@ -125,7 +171,7 @@ export default function ProjectVideos() {
                           ref={(el) => {
                             iframeRefs.current[video.id] = el;
                           }}
-                          src={`https://player.vimeo.com/video/${video.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                          src={`https://player.vimeo.com/video/${video.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&background=0&api=1`}
                           className="absolute inset-0 w-full h-full"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowFullScreen
