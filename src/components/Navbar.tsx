@@ -12,8 +12,8 @@ const navigation = [
     href: '#',
     dropdown: [
   { name: 'Work Timeline', href: '/work-timeline' },
-      { name: 'Project Photos', href: '/project-photos' },
-      { name: 'Project Videos', href: '/project-videos' },
+  { name: 'Project Photos', href: '/project-photos' },
+  { name: 'Project Videos', href: '/project-videos' },
     ],
   },
   {
@@ -64,7 +64,7 @@ export default function Navbar() {
   }, [openDropdown]);
 
   const isHomePage = location.pathname === '/';
-  
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 -mb-20 ${

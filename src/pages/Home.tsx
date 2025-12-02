@@ -277,8 +277,8 @@ export default function Home() {
                     rows={3}
                     className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none text-sm"
                     placeholder="Tell us about your project requirements..."
-                  />
-                </div>
+          />
+        </div>
 
                 <button
                   type="submit"
@@ -348,13 +348,13 @@ export default function Home() {
                 View Our Projects
               </Link>
             </div>
-            
+
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/20">
               {trustIndicators.map((indicator, index) => (
-                <motion.div
+              <motion.div
                   key={indicator.label}
-                  initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="flex items-center gap-3"
@@ -369,10 +369,10 @@ export default function Home() {
                     <div className="text-sm md:text-base text-gray-300">
                       {indicator.label}
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
           </motion.div>
         </div>
       </section>
@@ -383,7 +383,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-4">
               Building Spaces for Life
-            </h2>
+              </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Our expertise includes translating architectural and engineering designs into tangible, functional structures.
             </p>
@@ -434,12 +434,12 @@ export default function Home() {
                       </h3>
                       <AnimatePresence>
                         {activeFeature === index && (
-                          <motion.div
+            <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             className="overflow-hidden"
-                          >
+            >
                             <p className="text-accent mb-2">{item.description}</p>
                             {/* Timeline/Progress Bar */}
                             <div className="h-1 w-full bg-accent/20 rounded-full overflow-hidden">
@@ -448,9 +448,9 @@ export default function Home() {
                                 animate={{ width: '100%' }}
                                 transition={{ duration: 5, ease: 'linear' }}
                                 className="h-full bg-red-inferno"
-                              />
+              />
                             </div>
-                          </motion.div>
+            </motion.div>
                         )}
                       </AnimatePresence>
                     </div>

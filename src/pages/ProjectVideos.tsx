@@ -148,19 +148,19 @@ export default function ProjectVideos() {
               const isPlaying = playingVideoId === video.id;
               
               return (
-                <motion.div
-                  key={video.id}
-                  initial={{ opacity: 0, y: 20 }}
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
                   {...(index === 0 
                     ? { animate: { opacity: 1, y: 0 }, transition: { delay: 0.1 } }
                     : { whileInView: { opacity: 1, y: 0 }, transition: { delay: index * 0.1 }, viewport: { once: true } }
                   )}
                   className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <img
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <img
                       src={video.vimeoId ? `https://vumbnail.com/${video.vimeoId}.jpg` : video.thumbnail}
-                      alt={video.title}
+                    alt={video.title}
                       className={`w-full h-full object-cover transition-opacity duration-300 ${
                         isPlaying && loadedVideoId === video.id ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
                       }`}
@@ -188,8 +188,8 @@ export default function ProjectVideos() {
                           >
                             <div className="w-16 h-16 border-2 border-cream rounded-full flex items-center justify-center bg-black/30 backdrop-blur-sm hover:scale-110 transition-transform">
                               <Pause className="text-cream" size={28} fill="currentColor" />
-                            </div>
-                          </div>
+                    </div>
+                  </div>
                         )}
                       </>
                     ) : (
@@ -202,11 +202,11 @@ export default function ProjectVideos() {
                       >
                         <div className="w-16 h-16 border-2 border-cream rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                           <Play className="text-cream ml-1" size={28} fill="currentColor" />
-                        </div>
-                      </div>
-                    )}
                   </div>
-                </motion.div>
+                </div>
+                    )}
+                </div>
+              </motion.div>
               );
             })}
           </div>

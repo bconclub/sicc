@@ -210,10 +210,10 @@ export default function Services() {
               <div className="bg-red-inferno text-white p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-2xl font-heading font-bold mb-2">Complete Package</h3>
-                    <p className="text-red-100">
-                      End-to-end civil labor services for your construction project
-                    </p>
+                <h3 className="text-2xl font-heading font-bold mb-2">Complete Package</h3>
+                <p className="text-red-100">
+                  End-to-end civil labor services for your construction project
+                </p>
                   </div>
                   <div className="text-right">
                     <div className="text-4xl font-heading font-black mb-1">₹999</div>
