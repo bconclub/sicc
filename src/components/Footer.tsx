@@ -4,6 +4,9 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'luc
 export default function Footer() {
   return (
     <footer className="bg-mystic-navy text-white">
+      {/* Orange strip at top */}
+      <div className="h-1 bg-red-inferno"></div>
+      
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -95,8 +98,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-accent/50 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-accent/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400">
           <p>&copy; {new Date().getFullYear()} South India Civil Contractors. All rights reserved.</p>
+          <p className="text-cream">
+            Built with <span className="text-red-inferno">❤️</span> at{' '}
+            <a 
+              href="https://bconclub.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-cream underline hover:text-cream/80 transition-colors"
+            >
+              BCON Club
+            </a>
+          </p>
         </div>
       </div>
     </footer>
