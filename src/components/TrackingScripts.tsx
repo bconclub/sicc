@@ -30,24 +30,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     noscript.appendChild(iframe);
     document.body.insertBefore(noscript, document.body.firstChild);
 
-    // Google Analytics (gtag.js)
-    const googleAnalyticsId = 'G-23B45KKLF0';
-    
-    // Load Google Analytics script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
-    document.head.appendChild(script);
-
-    // Initialize Google Analytics
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    function gtag(...args: any[]) {
-      (window as any).dataLayer.push(args);
-    }
-    (window as any).gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', googleAnalyticsId);
-
     // Microsoft Clarity
     const clarityId = 'ufmvxb7e9r';
     const clarityScript = document.createElement('script');
