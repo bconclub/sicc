@@ -47,6 +47,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     (window as any).gtag = gtag;
     gtag('js', new Date());
     gtag('config', googleAnalyticsId);
+
+    // Microsoft Clarity
+    const clarityId = 'ufmvxb7e9r';
+    const clarityScript = document.createElement('script');
+    clarityScript.type = 'text/javascript';
+    clarityScript.innerHTML = `(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "${clarityId}");`;
+    document.head.appendChild(clarityScript);
   }, []);
 
   return null;

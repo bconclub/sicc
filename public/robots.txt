@@ -1,0 +1,15 @@
+# robots.txt for South India Civil Contractors (SICC)
+# https://www.sicc.com
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.sicc.com/sitemap.xml
+
+
+
