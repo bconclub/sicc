@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import ConsultationButton from '../components/ConsultationButton';
 import TrackingScripts from '../components/TrackingScripts';
 
 interface LayoutProps {
@@ -25,6 +26,7 @@ export default function Layout({ children }: LayoutProps) {
       </main>
       <Footer />
       <WhatsAppButton />
+      <ConsultationButton />
     </div>
   );
 }

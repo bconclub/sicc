@@ -166,7 +166,11 @@ export default function Home() {
               </div>
               
               <div className="p-5">
-                <ContactForm compact={true} onSuccess={() => setIsConsultationOpen(false)} />
+                <ContactForm 
+                  compact={true} 
+                  onSuccess={() => setIsConsultationOpen(false)}
+                  source="Home Page - Consultation Modal"
+                />
               </div>
             </div>
             </motion.div>
