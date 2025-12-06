@@ -77,6 +77,9 @@ const videos: Video[] = [
 ];
 
 export default function ProjectVideos() {
+  useEffect(() => {
+    document.title = 'Project Videos - South India Civil Contractors';
+  }, []);
   const [playingVideoId, setPlayingVideoId] = useState<number | null>(null);
   const [loadedVideoId, setLoadedVideoId] = useState<number | null>(null);
   const iframeRefs = useRef<{ [key: number]: HTMLIFrameElement | null }>({});

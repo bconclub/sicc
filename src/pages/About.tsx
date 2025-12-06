@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import {
   Award,
   Target,
@@ -56,6 +57,10 @@ const milestones = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    document.title = 'About Us - South India Civil Contractors';
+  }, []);
+
   return (
     <div className="bg-white">
       {/* Hero Section */}

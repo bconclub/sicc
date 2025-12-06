@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ZoomIn, Download } from 'lucide-react';
 
 interface Render {
@@ -38,6 +38,10 @@ const renders: Render[] = [
 ];
 
 export default function FloorPlans() {
+  useEffect(() => {
+    document.title = '3D Renders - South India Civil Contractors';
+  }, []);
+
   const [selectedRender, setSelectedRender] = useState<Render | null>(null);
 
   const handleDownload = (e: React.MouseEvent, render: Render) => {

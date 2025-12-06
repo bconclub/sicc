@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import {
   Users,
   Briefcase,
@@ -66,6 +67,10 @@ const stats = [
 ];
 
 export default function AssetsManpower() {
+  useEffect(() => {
+    document.title = 'Assets & Manpower - South India Civil Contractors';
+  }, []);
+
   return (
     <div className="bg-white">
       {/* Hero Section */}

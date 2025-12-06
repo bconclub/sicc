@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Building2, Home, School, Hotel, Building, Calendar } from 'lucide-react';
 
 interface Project {
@@ -283,6 +283,10 @@ const projectTypeIcons: Record<string, any> = {
 };
 
 export default function WorkTimeline() {
+  useEffect(() => {
+    document.title = 'Work Timeline - South India Civil Contractors';
+  }, []);
+
   // Keep first year open by default
   const [selectedYear, setSelectedYear] = useState<number | null>(timelineData[0]?.year || null);
   const [filter, setFilter] = useState<string>('All');

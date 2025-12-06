@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 
 interface Photo {
@@ -58,6 +58,10 @@ const photos: Photo[] = [
 const categories = ['All', 'Residential', 'Commercial', 'Under Construction'];
 
 export default function ProjectPhotos() {
+  useEffect(() => {
+    document.title = 'Project Photos - South India Civil Contractors';
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
 

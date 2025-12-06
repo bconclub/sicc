@@ -185,7 +185,7 @@ Copyright © 2025 South India Civil Contractors. All rights reserved.
 ## 🤝 Support
 
 For support or inquiries:
-- Email: info@sicc.com
+- Email: build@southindiacivilcontractor.com
 - Phone: +91 XXXX XXX XXX
 
 ---

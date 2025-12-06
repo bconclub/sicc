@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogos from '../components/BrandLogos';
+import ContactForm from '../components/ContactForm';
 import {
   Building2,
   ArrowRight,
@@ -14,7 +15,6 @@ import {
   Grid3x3,
   Shield,
   X,
-  Send,
   Wrench,
   Zap,
   Paintbrush,
@@ -119,14 +119,10 @@ const testimonials = [
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    projectType: '',
-    message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.title = 'South India Civil Contractors - Building Spaces For Life Since 1952';
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -134,23 +130,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', phone: '', email: '', projectType: '', message: '' });
-      setIsConsultationOpen(false);
-    }, 3000);
-  };
 
   return (
     <div className={`bg-white ${isConsultationOpen ? 'overflow-hidden' : ''}`}>
@@ -186,122 +165,9 @@ export default function Home() {
                 </button>
               </div>
               
-              <form onSubmit={handleFormSubmit} className="p-5 space-y-4">
-                <div>
-                  <label htmlFor="consult-name" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="consult-name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleFormChange}
-                    required
-                    className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
-                    placeholder="Enter your name"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="consult-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="consult-phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleFormChange}
-                      required
-                      className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
-                      placeholder="+91 XXXXX XXXXX"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="consult-email" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="consult-email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleFormChange}
-                      required
-                      className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="consult-project" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Project Type *
-                  </label>
-                  <select
-                    id="consult-project"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleFormChange}
-                    required
-                    className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
-                  >
-                    <option value="">Select project type</option>
-                    <option value="Apartment">Apartment Project</option>
-                    <option value="Bungalow">Bungalow Building</option>
-                    <option value="Commercial">Commercial Building</option>
-                    <option value="College">College Building</option>
-                    <option value="High Rise">High Rise Project</option>
-                    <option value="Hospital">Hospital Project</option>
-                    <option value="Hotel">Hotel Project</option>
-                    <option value="PG">PG Building</option>
-                    <option value="Renovation">Renovation Work</option>
-                    <option value="Residential">Residential Building</option>
-                    <option value="Villa">Villa Building</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="consult-message" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Project Details *
-                  </label>
-                  <textarea
-                    id="consult-message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleFormChange}
-                    required
-                    rows={3}
-                    className="w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none text-sm"
-                    placeholder="Tell us about your project requirements..."
-          />
-        </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitted}
-                  className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-sm transition-colors ${
-                    isSubmitted
-                      ? 'bg-green-500 text-white'
-                      : 'bg-red-inferno text-white hover:bg-red-inferno/90'
-                  }`}
-                >
-                  {isSubmitted ? (
-                    <>
-                      <CheckCircle className="mr-2" size={18} />
-                      Request Sent Successfully!
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2" size={18} />
-                      Submit Request
-                    </>
-                  )}
-                </button>
-              </form>
+              <div className="p-5">
+                <ContactForm compact={true} onSuccess={() => setIsConsultationOpen(false)} />
+              </div>
             </div>
             </motion.div>
           </>

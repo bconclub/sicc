@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Award, BookOpen, HardHat, FileCheck, ChevronDown } from 'lucide-react';
 import BrandLogos from '../components/BrandLogos';
@@ -270,6 +270,10 @@ const compliance = [
 ];
 
 export default function TechnicalSpecifications() {
+  useEffect(() => {
+    document.title = 'Technical Specifications - South India Civil Contractors';
+  }, []);
+
   const [openSpecs, setOpenSpecs] = useState<{ [key: string]: boolean }>({});
   const [openMaterials, setOpenMaterials] = useState<{ [key: string]: boolean }>({});
 

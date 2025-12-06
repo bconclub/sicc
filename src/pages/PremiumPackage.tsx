@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -16,6 +17,9 @@ import {
 } from 'lucide-react';
 
 export default function PremiumPackage() {
+  useEffect(() => {
+    document.title = 'Premium Package - South India Civil Contractors';
+  }, []);
   const foundationCards = [
     {
       icon: Building2,

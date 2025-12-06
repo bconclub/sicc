@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ChevronDown,
   ChevronUp,
@@ -100,6 +100,10 @@ const laborContractServices = [
 
 export default function Services() {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Services - South India Civil Contractors';
+  }, []);
 
   return (
     <div className="bg-white">

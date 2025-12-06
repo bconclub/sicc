@@ -1,33 +1,12 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { useEffect } from 'react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    projectType: '',
-    message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', phone: '', email: '', projectType: '', message: '' });
-    }, 3000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  useEffect(() => {
+    document.title = 'Contact Us - South India Civil Contractors';
+  }, []);
 
   return (
     <div className="bg-white">
@@ -65,125 +44,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
             >
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-6">
-                Send Us a Message
-              </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-                    placeholder="Enter your name"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-                      placeholder="+91 XXXXX XXXXX"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Project Type *
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent"
-                  >
-                    <option value="">Select project type</option>
-                    <option value="Apartment">Apartment Project</option>
-                    <option value="Bungalow">Bungalow Building</option>
-                    <option value="Commercial">Commercial Building</option>
-                    <option value="College">College Building</option>
-                    <option value="High Rise">High Rise Project</option>
-                    <option value="Hospital">Hospital Project</option>
-                    <option value="Hotel">Hotel Project</option>
-                    <option value="PG">PG Building</option>
-                    <option value="Renovation">Renovation Work</option>
-                    <option value="Residential">Residential Building</option>
-                    <option value="Villa">Villa Building</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Project Details *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent resize-none"
-                    placeholder="Tell us about your project requirements..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitted}
-                  className={`w-full flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-colors ${
-                    isSubmitted
-                      ? 'bg-green-500 text-white'
-                      : 'bg-red-inferno text-white hover:bg-red-inferno/90'
-                  }`}
-                >
-                  {isSubmitted ? (
-                    <>
-                      <CheckCircle className="mr-2" size={20} />
-                      Message Sent Successfully!
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2" size={20} />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </form>
+              <ContactForm showTitle={true} />
             </motion.div>
 
             {/* Contact Information */}
@@ -236,7 +97,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-mystic-navy mb-1">Email Address</h3>
                     <p className="text-gray-600">
-                      info@sicc.com<br />
+                      build@southindiacivilcontractor.com<br />
                       projects@sicc.com
                     </p>
                   </div>
