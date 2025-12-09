@@ -122,17 +122,28 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="h-96 bg-gray-200">
+      <section className="h-96 bg-gray-200 relative">
         <div className="w-full h-full">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497699.9973874144!2d77.35074421903857!3d12.953945613752363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.0131886040561!2d77.52711895589404!3d12.958344864746929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x402f19bd64ddfe73%3A0x3c73d2ec3803e681!2sSouth%20India%20Civil%20Contractor!5e0!3m2!1sen!2sin!4v1765247926176!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            title="South India Civil Contractors Location"
           />
+        </div>
+        <div className="absolute bottom-4 right-4 z-10">
+          <a
+            href="https://www.google.com/maps/place/South+India+Civil+Contractor/@12.9585589,77.5270688,17z/data=!3m1!4b1!4m6!3m5!1s0x402f19bd64ddfe73:0x3c73d2ec3803e681!8m2!3d12.9585589!4d77.5270688!16s%2Fg%2F11ms18p754?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 bg-white text-red-inferno font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition-colors"
+          >
+            Open in Google Maps →
+          </a>
         </div>
       </section>
 
