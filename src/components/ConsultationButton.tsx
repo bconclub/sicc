@@ -28,7 +28,7 @@ export default function ConsultationButton() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 sm:bottom-22 md:bottom-24 right-4 sm:right-6 z-50 bg-red-inferno text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-red-inferno/90 transition-colors"
+        className="fixed bottom-20 sm:bottom-24 md:bottom-24 right-4 sm:right-6 z-50 bg-red-inferno text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-red-inferno/90 transition-colors"
         aria-label="Get Free Consultation"
         title="Get Free Consultation"
       >
