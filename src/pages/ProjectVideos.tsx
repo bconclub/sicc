@@ -152,6 +152,17 @@ const videos: Video[] = [
     vimeoId: '1145565790',
     aspectRatio: '9:16'
   },
+  {
+    id: 14,
+    title: 'SICC Project Video 14',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145570818.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145570818',
+    aspectRatio: '9:16'
+  },
 ];
 
 export default function ProjectVideos() {
@@ -247,12 +258,6 @@ export default function ProjectVideos() {
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
             {shuffledVideos.length > 0 ? shuffledVideos.map((video, index) => {
               const isPlaying = playingVideoId === video.id;
-              
-              // #region agent log
-              if (video.aspectRatio === '9:16') {
-                fetch('http://127.0.0.1:7243/ingest/c8e0008f-f136-4af8-ad96-6463226933f5',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'ProjectVideos.tsx:230',message:'Portrait video detected',data:{videoId:video.id,vimeoId:video.vimeoId,aspectRatio:video.aspectRatio},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-              }
-              // #endregion
               
               return (
               <motion.div
