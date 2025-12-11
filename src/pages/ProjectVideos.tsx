@@ -163,6 +163,27 @@ const videos: Video[] = [
     vimeoId: '1145570818',
     aspectRatio: '9:16'
   },
+  {
+    id: 15,
+    title: 'SICC Project Video 15',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145582253.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145582253',
+    usePreviewVideo: true
+  },
+  {
+    id: 16,
+    title: 'SICC Project Video 16',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145582649.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145582649'
+  },
 ];
 
 export default function ProjectVideos() {
