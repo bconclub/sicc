@@ -19,7 +19,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-300 mb-4">
-              Building spaces for life since 1998. Your trusted partner in construction excellence.
+              Building spaces for life since 1952. Your trusted partner in construction excellence.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-red-inferno transition-colors">

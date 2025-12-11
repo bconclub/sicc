@@ -353,7 +353,7 @@ export default function Services() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="bg-white rounded-lg p-6 shadow-lg">
                     <HardHat className="w-8 h-8 text-orange-600 mb-3" />
@@ -392,7 +392,7 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                <div className="space-y-4 pt-8">
+                <div className="space-y-4 md:pt-8">
                   <div className="bg-white rounded-lg p-6 shadow-lg">
                     <Building2 className="w-8 h-8 text-orange-600 mb-3" />
                     <h3 className="text-lg font-heading font-semibold mb-3 text-orange-600">Complete Coverage</h3>
@@ -413,7 +413,7 @@ export default function Services() {
                   </div>
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white rounded-lg p-6 shadow-lg cursor-pointer border-2 border-orange-200 hover:border-orange-400 transition-all"
+                    className="bg-white rounded-lg p-4 md:p-6 shadow-lg cursor-pointer border-2 border-orange-200 hover:border-orange-400 transition-all w-full"
                     onClick={() => setIsExpanded(!isExpanded)}
                   >
                     <div className="flex items-center justify-between">
