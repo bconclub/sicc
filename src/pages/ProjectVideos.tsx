@@ -381,7 +381,7 @@ export default function ProjectVideos() {
                 </div>
               </motion.div>
               );
-            }) : videos.map((video, index) => (
+            }) : videos.map((video) => (
               <div key={video.id} className="break-inside-avoid mb-8">
                 <div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>
               </div>
