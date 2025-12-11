@@ -11,6 +11,8 @@ interface Video {
   duration: string;
   views: string;
   vimeoId?: string;
+  aspectRatio?: '16:9' | '9:16';
+  usePreviewVideo?: boolean;
 }
 
 const videos: Video[] = [
@@ -74,6 +76,82 @@ const videos: Video[] = [
     views: '12.5K',
     vimeoId: '1141980834'
   },
+  {
+    id: 7,
+    title: 'SICC Project Video 7',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145561752.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145561752'
+  },
+  {
+    id: 8,
+    title: 'SICC Project Video 8',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145563003.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145563003',
+    usePreviewVideo: true
+  },
+  {
+    id: 9,
+    title: 'SICC Project Video 9',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145563600.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145563600',
+    aspectRatio: '9:16'
+  },
+  {
+    id: 10,
+    title: 'SICC Project Video 10',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145563810.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145563810',
+    aspectRatio: '9:16'
+  },
+  {
+    id: 11,
+    title: 'SICC Project Video 11',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145564022.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145564022',
+    aspectRatio: '9:16'
+  },
+  {
+    id: 12,
+    title: 'SICC Project Video 12',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145565464.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145565464',
+    aspectRatio: '9:16'
+  },
+  {
+    id: 13,
+    title: 'SICC Project Video 13',
+    description: 'Watch our construction projects and company overview',
+    category: 'Construction Process',
+    thumbnail: `https://vumbnail.com/1145565790.jpg`,
+    duration: '5:30',
+    views: '12.5K',
+    vimeoId: '1145565790',
+    aspectRatio: '9:16'
+  },
 ];
 
 export default function ProjectVideos() {
@@ -82,7 +160,16 @@ export default function ProjectVideos() {
   }, []);
   const [playingVideoId, setPlayingVideoId] = useState<number | null>(null);
   const [loadedVideoId, setLoadedVideoId] = useState<number | null>(null);
+  const [previewVideoId, setPreviewVideoId] = useState<number | null>(null);
+  const [shuffledVideos, setShuffledVideos] = useState<Video[]>([]);
   const iframeRefs = useRef<{ [key: number]: HTMLIFrameElement | null }>({});
+  const previewIframeRefs = useRef<{ [key: number]: HTMLIFrameElement | null }>({});
+
+  // Shuffle videos on component mount
+  useEffect(() => {
+    const shuffled = [...videos].sort(() => Math.random() - 0.5);
+    setShuffledVideos(shuffled);
+  }, []);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -109,12 +196,23 @@ export default function ProjectVideos() {
             setLoadedVideoId(null);
           }, 500);
         }
+        // Handle preview video pause at 1-2 seconds
+        if (data.event === 'playProgress' && data.data && previewVideoId) {
+          const seconds = data.data.seconds;
+          if (seconds >= 1.5 && seconds <= 2) {
+            // Pause preview video at 1.5-2 seconds
+            const iframe = previewIframeRefs.current[previewVideoId];
+            if (iframe && iframe.contentWindow && playingVideoId !== previewVideoId) {
+              iframe.contentWindow.postMessage(JSON.stringify({ method: 'pause' }), 'https://player.vimeo.com');
+            }
+          }
+        }
       }
     };
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, []);
+  }, [previewVideoId, playingVideoId]);
 
   return (
     <div className="bg-white">
@@ -146,9 +244,15 @@ export default function ProjectVideos() {
       {/* Video Gallery */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {videos.map((video, index) => {
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
+            {shuffledVideos.length > 0 ? shuffledVideos.map((video, index) => {
               const isPlaying = playingVideoId === video.id;
+              
+              // #region agent log
+              if (video.aspectRatio === '9:16') {
+                fetch('http://127.0.0.1:7243/ingest/c8e0008f-f136-4af8-ad96-6463226933f5',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'ProjectVideos.tsx:230',message:'Portrait video detected',data:{videoId:video.id,vimeoId:video.vimeoId,aspectRatio:video.aspectRatio},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+              }
+              // #endregion
               
               return (
               <motion.div
@@ -158,16 +262,82 @@ export default function ProjectVideos() {
                     ? { animate: { opacity: 1, y: 0 }, transition: { delay: 0.1 } }
                     : { whileInView: { opacity: 1, y: 0 }, transition: { delay: index * 0.1 }, viewport: { once: true } }
                   )}
-                  className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow"
+                  className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow break-inside-avoid mb-8"
               >
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                      src={video.vimeoId ? `https://vumbnail.com/${video.vimeoId}.jpg` : video.thumbnail}
-                    alt={video.title}
-                      className={`w-full h-full object-cover transition-opacity duration-300 ${
-                        isPlaying && loadedVideoId === video.id ? 'opacity-0' : 'opacity-100 group-hover:scale-110'
-                      }`}
-                    />
+                <div className={`relative overflow-hidden ${
+                  (video.aspectRatio === '9:16' || video.usePreviewVideo) ? (video.aspectRatio === '9:16' ? 'aspect-[9/16] bg-black' : 'aspect-video bg-black') : 'aspect-video'
+                }`}>
+                  {(video.aspectRatio === '9:16' || video.usePreviewVideo) && video.vimeoId ? (
+                    <>
+                      {/* Preview video showing first 1-2 seconds */}
+                      <iframe
+                        ref={(el) => {
+                          previewIframeRefs.current[video.id] = el;
+                        }}
+                        src={`https://player.vimeo.com/video/${video.vimeoId}?autoplay=1&loop=0&muted=1&title=0&byline=0&portrait=0&controls=0&background=0&api=1&start=0`}
+                        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
+                          isPlaying && loadedVideoId === video.id ? 'opacity-0' : 'opacity-100'
+                        }`}
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        title={video.title}
+                        onLoad={() => {
+                          setPreviewVideoId(video.id);
+                          // Auto-pause at 1.5 seconds
+                          setTimeout(() => {
+                            const iframe = previewIframeRefs.current[video.id];
+                            if (iframe && iframe.contentWindow && playingVideoId !== video.id) {
+                              iframe.contentWindow.postMessage(JSON.stringify({ method: 'pause' }), 'https://player.vimeo.com');
+                            }
+                          }, 1500);
+                        }}
+                      />
+                      {/* Pause button overlay - always visible */}
+                      {!isPlaying && (
+                        <div 
+                          className="absolute inset-0 flex items-center justify-center cursor-pointer z-10 bg-black/10"
+                          onClick={() => {
+                            setPlayingVideoId(video.id);
+                            setLoadedVideoId(null);
+                          }}
+                        >
+                          <div className="w-16 h-16 border-2 border-cream rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm hover:scale-110 transition-transform opacity-80 group-hover:opacity-100">
+                            <Play className="text-cream ml-1" size={28} fill="currentColor" />
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <img
+                        src={
+                          video.vimeoId 
+                            ? `https://vumbnail.com/${video.vimeoId}.jpg`
+                            : video.thumbnail
+                        }
+                      alt={video.title}
+                        className={`w-full h-full transition-opacity duration-300 ${
+                          video.aspectRatio === '9:16' ? 'object-contain' : 'object-cover'
+                        } ${
+                          isPlaying && loadedVideoId === video.id ? 'opacity-0' : 'opacity-100'
+                        }`}
+                        onError={(e) => {
+                          // Fallback chain: vumbnail -> vimeocdn -> placeholder
+                          const target = e.target as HTMLImageElement;
+                          if (video.vimeoId) {
+                            if (target.src.includes('vumbnail.com')) {
+                              // Try Vimeo CDN
+                              target.src = `https://i.vimeocdn.com/video/${video.vimeoId}_640.jpg`;
+                            } else if (target.src.includes('vimeocdn.com')) {
+                              // Try different Vimeo thumbnail size
+                              target.src = `https://i.vimeocdn.com/video/${video.vimeoId}_1280.jpg`;
+                            } else {
+                              // Final fallback to placeholder
+                              target.src = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=640';
+                            }
+                          }
+                        }}
+                      />
+                  )}
                     {isPlaying && video.vimeoId ? (
                       <>
                         <iframe
@@ -211,7 +381,11 @@ export default function ProjectVideos() {
                 </div>
               </motion.div>
               );
-            })}
+            }) : videos.map((video, index) => (
+              <div key={video.id} className="break-inside-avoid mb-8">
+                <div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,9 +1,19 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ChevronDown,
   ChevronUp,
-  CheckCircle
+  CheckCircle,
+  ArrowRight,
+  Building2,
+  Award,
+  Shield,
+  DollarSign,
+  Wrench,
+  Zap,
+  Paintbrush,
+  HardHat
 } from 'lucide-react';
 
 const services = [
@@ -187,112 +197,264 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Civil Labor Contract Package - Pricing Card */}
-      <section className="section-padding bg-accent/10">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
-                Civil Labor Contract Package
-              </h2>
-              <p className="text-gray-600 mb-2">
-                Available at competitive rates, includes comprehensive 20-point service coverage
-              </p>
-            </div>
-
+      {/* Premium Construction Package Section */}
+      <section className="section-padding bg-gradient-to-br from-mystic-navy via-red-inferno to-mystic-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
+            alt="Premium Construction"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-accent/30 hover:border-red-inferno transition-all cursor-pointer"
-              onClick={() => setIsExpanded(!isExpanded)}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              <div className="bg-red-inferno text-white p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                <h3 className="text-2xl font-heading font-bold mb-2">Complete Package</h3>
-                <p className="text-red-100">
-                  End-to-end civil labor services for your construction project
-                </p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-4xl font-heading font-black mb-1">₹999</div>
-                    <div className="text-sm text-red-100">per sq.ft</div>
-                  </div>
-                </div>
+              <div className="inline-block px-4 py-2 bg-cream/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-cream border border-cream/40">
+                Premium Solution
               </div>
-
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4 p-4 bg-accent/10 rounded-lg">
-                  <span className="font-semibold text-mystic-navy">
-                    View All 20 Services Included
-                  </span>
-                  {isExpanded ? (
-                    <ChevronUp className="text-red-inferno" size={24} />
-                  ) : (
-                    <ChevronDown className="text-red-inferno" size={24} />
-                  )}
-                </div>
-
-                <motion.div
-                  initial={false}
-                  animate={{ height: isExpanded ? 'auto' : 0 }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid md:grid-cols-2 gap-3 pt-4 mb-6">
-                    {laborContractServices.map((service, index) => (
-                      <motion.div
-                        key={service}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -10 }}
-                        transition={{ delay: index * 0.03 }}
-                        className="flex items-start space-x-3 p-3 bg-accent/10 rounded-lg"
-                      >
-                        <CheckCircle className="w-5 h-5 text-red-inferno flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 text-sm">{service}</span>
-                      </motion.div>
-                    ))}
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
+                Premium Construction Package
+              </h2>
+              <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream leading-tight">
+                ₹2,499 <span className="text-2xl md:text-3xl text-white">per sq ft</span>
+              </div>
+              <p className="text-lg md:text-xl mb-6 text-gray-200 leading-relaxed">
+                Comprehensive construction solution with premium materials and expert craftsmanship. 
+                Everything you need for your dream home in one complete package.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle className="text-accent mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-200">Premium branded materials only</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-accent mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-200">Complete end-to-end construction solution</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-accent mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-gray-200">Transparent pricing with no hidden costs</span>
+                </li>
+              </ul>
+              <Link
+                to="/premium-package"
+                className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                Explore Package Details
+                <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Building2 className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Premium Materials</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/acc.png" alt="ACC" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/birlasuper.png" alt="Birla Super" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/jindalsteel.png" alt="Jindal Steel" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
                   </div>
-                </motion.div>
-
-                <div className="mt-6 p-4 bg-mystic-navy/5 rounded-lg">
-                  <h4 className="font-semibold text-mystic-navy mb-2">Package Benefits:</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-red-inferno mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">Competitive pricing with no hidden costs</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-red-inferno mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">Skilled and experienced workforce</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-red-inferno mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">Quality assurance at every stage</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-red-inferno mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">Timely project completion</span>
-                    </li>
-                  </ul>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Wrench className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Branded Fixtures</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/hindware.png" alt="Hindware" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/cera.png" alt="Cera" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/jaguar.png" alt="Jaguar" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
                 </div>
-
-                <div className="mt-6 text-center">
-                  <a
-                    href="/contact"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-block px-8 py-3 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors"
-                  >
-                    Get a Quote
-                  </a>
+                <div className="space-y-4 pt-8">
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Zap className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Electrical</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/havels.png" alt="Havells" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/anchor.png" alt="Anchor" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Paintbrush className="w-8 h-8 text-accent mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-accent">Painting</h3>
+                    <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+                      <img src="/brand-logos/asianpaints.png" alt="Asian Paints" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                      <img src="/brand-logos/berger.png" alt="Berger" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Civil Labor Contract Package Section */}
+      <section className="section-padding bg-gradient-to-br from-orange-600 via-amber-600 to-orange-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920"
+            alt="Construction Site"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-block px-4 py-2 bg-orange-500/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-white border border-orange-300/40">
+                Labor Solution
+              </div>
+              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
+                Civil Labor Contract Package
+              </h2>
+              <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-orange-100 leading-tight">
+                ₹999 <span className="text-2xl md:text-3xl text-white">per sq ft</span>
+              </div>
+              <p className="text-lg md:text-xl mb-6 text-orange-50 leading-relaxed">
+                Comprehensive civil labor services with skilled workforce and expert craftsmanship. 
+                Complete end-to-end labor solutions for your construction project.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <CheckCircle className="text-orange-200 mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-orange-50">20-point comprehensive service coverage</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-orange-200 mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-orange-50">Skilled and experienced workforce</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-orange-200 mr-3 mt-1 flex-shrink-0" size={20} />
+                  <span className="text-orange-50">Competitive pricing with no hidden costs</span>
+                </li>
+              </ul>
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition-colors"
+              >
+                Get a Quote
+                <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <HardHat className="w-8 h-8 text-orange-600 mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-orange-600">Foundation & Structure</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Earth Work & Foundation</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Masonry & Bar Bending</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Concrete & Centering</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Wrench className="w-8 h-8 text-orange-600 mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-orange-600">Finishing Works</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Plastering & Tiles</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Plumbing & Electrical</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Painting & Fittings</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <Building2 className="w-8 h-8 text-orange-600 mb-3" />
+                    <h3 className="text-lg font-heading font-semibold mb-3 text-orange-600">Complete Coverage</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>20 Services Included</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Quality Assurance</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-orange-600 mr-2 flex-shrink-0" />
+                        <span>Timely Completion</span>
+                      </div>
+                    </div>
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white rounded-lg p-6 shadow-lg cursor-pointer border-2 border-orange-200 hover:border-orange-400 transition-all"
+                    onClick={() => setIsExpanded(!isExpanded)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-lg font-heading font-semibold mb-2 text-orange-600">View All Services</h3>
+                        <p className="text-sm text-gray-600">20-point comprehensive coverage</p>
+                      </div>
+                      {isExpanded ? (
+                        <ChevronUp className="text-orange-600" size={24} />
+                      ) : (
+                        <ChevronDown className="text-orange-600" size={24} />
+                      )}
+                    </div>
+                    <motion.div
+                      initial={false}
+                      animate={{ height: isExpanded ? 'auto' : 0 }}
+                      className="overflow-hidden mt-4"
+                    >
+                      <div className="grid grid-cols-1 gap-2 pt-4">
+                        {laborContractServices.map((service, index) => (
+                          <motion.div
+                            key={service}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -10 }}
+                            transition={{ delay: index * 0.02 }}
+                            className="flex items-start space-x-2 p-2 bg-orange-50 rounded"
+                          >
+                            <CheckCircle className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-700 text-xs">{service}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
