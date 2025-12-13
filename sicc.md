@@ -50,15 +50,15 @@ npm run build
 ## Static Assets
 
 ### Favicon/Icon
-- **Location**: `public/icon.png` and `src/app/icon.png`
-- **HTML Reference**: `/icon.png?v=3`
-- **Formats**: PNG
-- **Note**: Icon should be in both `public/` (for build) and `src/app/` (for framework compatibility)
+- **Primary**: `public/favicon.ico` - Main favicon (ICO format)
+- **Fallback**: `public/favicon.png` - PNG fallback for modern browsers
+- **HTML Reference**: `/favicon.ico` (primary), `/favicon.png` (fallback)
+- **Formats**: ICO (primary), PNG (fallback)
 
 ### Public Assets
 All files in `public/` directory are served from root:
-- `/icon.png` - Favicon
-- `/favicon.png` - Legacy favicon (kept for compatibility)
+- `/favicon.ico` - Primary favicon
+- `/favicon.png` - Fallback favicon (PNG format)
 - `/sitemap.xml` - XML sitemap
 - `/robots.txt` - Robots file
 - `/Light.svg` - Light logo
@@ -91,7 +91,7 @@ dist/
 │   ├── index-[hash].js
 │   ├── index-[hash].css
 │   └── [other assets]
-├── icon.png
+├── favicon.ico
 ├── favicon.png
 ├── sitemap.xml
 ├── robots.txt
@@ -101,13 +101,10 @@ dist/
 ## Important Notes
 
 ### Favicon Issue Resolution
-- Icon file must exist in both `public/icon.png` and `src/app/icon.png`
-- HTML references `/icon.png?v=3` (version bump for cache busting)
-- If favicon doesn't show, increment version number in `index.html`
-
-### Cache Busting
-- Favicon uses query parameter: `?v=3`
-- Increment version when updating favicon to force browser refresh
+- Primary favicon: `public/favicon.ico` must exist
+- Fallback favicon: `public/favicon.png` must exist
+- HTML references `/favicon.ico` as primary and `/favicon.png` as fallback
+- If favicon doesn't show, clear browser cache or hard refresh (Ctrl+F5)
 
 ### Sitemap
 - Location: `public/sitemap.xml`
@@ -140,11 +137,10 @@ npm run preview
 ## Troubleshooting
 
 ### Favicon Not Showing
-1. Check if `icon.png` exists in `public/` directory
-2. Verify `src/app/icon.png` exists
-3. Increment version number in `index.html` (e.g., `?v=4`)
-4. Clear browser cache or hard refresh (Ctrl+F5)
-5. Verify file is copied to `dist/` after build
+1. Check if `favicon.ico` exists in `public/` directory
+2. Check if `favicon.png` exists in `public/` directory (fallback)
+3. Clear browser cache or hard refresh (Ctrl+F5)
+4. Verify files are copied to `dist/` after build
 
 ### Build Issues
 1. Ensure Node.js 20 is installed
@@ -161,6 +157,6 @@ npm run preview
 ## Last Updated
 - **Date**: 2025-12-10
 - **Build Version**: Current
-- **Favicon Version**: v3
+- **Favicon**: favicon.ico (primary), favicon.png (fallback)
 
 
