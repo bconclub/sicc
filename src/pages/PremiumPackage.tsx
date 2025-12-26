@@ -14,7 +14,6 @@ import {
   Shield,
   DollarSign,
   X,
-  Send,
   ChevronLeft,
   ChevronRight,
   ZoomIn,
@@ -956,7 +955,7 @@ export default function PremiumPackage() {
                         src={item.url}
                         alt={`Project ${index + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        onClick={() => setSelectedImage(item.url)}
+                        onClick={() => setSelectedImage(item.url || null)}
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <ZoomIn className="text-white" size={32} />
