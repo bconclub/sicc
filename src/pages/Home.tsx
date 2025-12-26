@@ -152,20 +152,20 @@ export default function Home() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none"
             >
-            <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
-              <div className="sticky top-0 bg-white border-b border-accent/20 px-5 py-3 flex items-center justify-between">
-                <h2 className="text-xl font-heading font-bold text-mystic-navy">
+            <div className="bg-gradient-to-br from-mother-pearl via-mother-pearl/98 to-mother-pearl/95 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto pointer-events-auto border-2 border-mystic-navy/20 ring-2 ring-red-inferno/10">
+              <div className="sticky top-0 bg-gradient-to-r from-mystic-navy to-mystic-navy/95 border-b-2 border-red-inferno/30 px-5 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                <h2 className="text-xl font-heading font-bold text-white">
                   Get Free Consultation
                 </h2>
                 <button
                   onClick={() => setIsConsultationOpen(false)}
-                  className="p-1.5 hover:bg-accent/10 rounded-full transition-colors"
+                  className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
                 >
-                  <X className="text-mystic-navy" size={20} />
+                  <X className="text-white" size={20} />
                 </button>
               </div>
               
-              <div className="p-5">
+              <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
                 <ContactForm 
                   compact={true} 
                   onSuccess={() => setIsConsultationOpen(false)}
@@ -197,7 +197,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-[2.6rem] md:text-6xl font-heading font-bold mb-6 text-white leading-tight">
+            <h1 className="text-[2.696rem] md:text-[3.888rem] font-heading font-bold mb-8 text-white leading-tight pt-5 md:pt-0">
               South India's Most Trusted Civil Contractors
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
@@ -251,7 +251,7 @@ export default function Home() {
       <section className="section-padding bg-mother-pearl">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-4">
               Building Spaces for Life
               </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -341,7 +341,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Our Expertise
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -422,7 +422,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-6">
+              <h2 className="text-[36px] md:text-[3.6rem] font-heading font-black text-mystic-navy mb-6">
                 Years of Excellence
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -489,7 +489,7 @@ export default function Home() {
               <div className="inline-block px-4 py-2 bg-cream/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-cream border border-cream/40">
                 Premium Solution
               </div>
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
+              <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
                 Premium Construction Package
               </h2>
               <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream leading-tight">
@@ -581,7 +581,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Our <span className="text-red-inferno">Work</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -635,7 +635,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Project <span className="text-red-inferno">Videos</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -692,7 +692,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               3D <span className="text-red-inferno">Renders</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -746,7 +746,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4">
               What Our Clients Say
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -794,7 +794,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 text-white">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4 text-white">
               Ready to Start Your Project?
             </h2>
             <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">

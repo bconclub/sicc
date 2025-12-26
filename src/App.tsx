@@ -11,6 +11,7 @@ import ProjectPhotos from './pages/ProjectPhotos';
 import ProjectVideos from './pages/ProjectVideos';
 import Contact from './pages/Contact';
 import PremiumPackage from './pages/PremiumPackage';
+import CivilLaborPackage from './pages/CivilLaborPackage';
 import ThankYou from './pages/ThankYou';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/project-videos" element={<ProjectVideos />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/premium-package" element={<PremiumPackage />} />
+          <Route path="/civil-labor-package" element={<CivilLaborPackage />} />
           <Route path="/thank-you" element={<ThankYou />} />
         </Routes>
       </Layout>

@@ -6,7 +6,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
-  { name: 'Services', href: '/services' },
+  {
+    name: 'Services',
+    href: '#',
+    dropdown: [
+      { name: 'All Services', href: '/services' },
+      { name: 'Premium Construction', href: '/premium-package' },
+      { name: 'Civil Labour Contract', href: '/civil-labor-package' },
+    ],
+  },
   {
     name: 'Our Work',
     href: '#',

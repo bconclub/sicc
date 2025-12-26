@@ -332,7 +332,7 @@ export default function TechnicalSpecifications() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Quality Standards
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -372,7 +372,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Technical Specifications
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -522,7 +522,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Construction Methodologies
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -566,7 +566,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4">
               Safety Protocols
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -601,7 +601,7 @@ export default function TechnicalSpecifications() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Compliance & Industry Standards
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">

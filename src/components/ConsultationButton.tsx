@@ -54,20 +54,20 @@ export default function ConsultationButton() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
             >
-              <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
-                <div className="sticky top-0 bg-white border-b border-accent/20 px-5 py-3 flex items-center justify-between">
-                  <h2 className="text-xl font-heading font-bold text-mystic-navy">
+              <div className="bg-gradient-to-br from-mother-pearl via-mother-pearl/98 to-mother-pearl/95 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto pointer-events-auto border-2 border-mystic-navy/20 ring-2 ring-red-inferno/10">
+                <div className="sticky top-0 bg-gradient-to-r from-mystic-navy to-mystic-navy/95 border-b-2 border-red-inferno/30 px-5 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                  <h2 className="text-xl font-heading font-bold text-white">
                     Get Free Consultation
                   </h2>
                   <button
                     onClick={handleClose}
-                    className="p-1.5 hover:bg-accent/10 rounded-full transition-colors"
+                    className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
                   >
-                    <X className="text-mystic-navy" size={20} />
+                    <X className="text-white" size={20} />
                   </button>
                 </div>
                 
-                <div className="p-5">
+                <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
                   <ContactForm 
                     compact={true} 
                     onSuccess={handleClose}

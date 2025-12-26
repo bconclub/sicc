@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -10,73 +10,75 @@ import {
   Wrench,
   Zap,
   Paintbrush,
-  HardHat
+  HardHat,
+  X
 } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 const services = [
   {
     image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop',
-    title: 'Apartment Project Civil Contractor',
+    title: 'Apartment Project',
     description: 'Comprehensive civil contracting services for residential apartment complexes, from foundation to finishing.',
     features: ['Multi-story construction', 'Modern amenities installation', 'Quality assurance']
   },
   {
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop',
-    title: 'Bungalow Building Civil Contractor',
+    title: 'Bungalow Building',
     description: 'Specialized services for luxury bungalow construction with attention to architectural details.',
     features: ['Custom design execution', 'Premium materials', 'Landscape integration']
   },
   {
     image: '/Commercial card.webp',
-    title: 'Commercial Building Civil Contractor',
+    title: 'Commercial Building',
     description: 'Professional commercial construction services for offices, retail spaces, and business complexes.',
     features: ['Code compliance', 'Modern infrastructure', 'Energy efficiency']
   },
   {
     image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop',
-    title: 'College Building Civil Contractor',
+    title: 'College Building',
     description: 'Educational facility construction with focus on functionality and student safety.',
     features: ['Large-scale projects', 'Safety standards', 'Sustainable design']
   },
   {
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop',
-    title: 'High Rise Project Civil Contractors',
+    title: 'High Rise Project',
     description: 'Expert high-rise construction services with advanced engineering and safety protocols.',
     features: ['Structural engineering', 'Advanced safety systems', 'Vertical construction']
   },
   {
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=300&fit=crop',
-    title: 'Hospital Project Civil Contractor',
+    title: 'Hospital Project',
     description: 'Healthcare facility construction meeting stringent medical and safety requirements.',
     features: ['Medical standards', 'Specialized infrastructure', 'Infection control']
   },
   {
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop',
-    title: 'Hotel Project Civil Contractor',
+    title: 'Hotel Project',
     description: 'Hospitality construction services for hotels and resorts with premium finishes.',
     features: ['Guest comfort focus', 'Luxury finishes', 'Amenity installation']
   },
   {
     image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop',
-    title: 'PG Building Civil Contractor',
+    title: 'PG Building',
     description: 'Paying guest accommodation construction optimized for comfort and efficiency.',
     features: ['Space optimization', 'Multiple units', 'Cost-effective design']
   },
   {
     image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop',
-    title: 'Renovation Work Civil Contractor',
+    title: 'Renovation Work',
     description: 'Expert renovation and remodeling services for existing structures.',
     features: ['Minimal disruption', 'Modern upgrades', 'Structural repairs']
   },
   {
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop',
-    title: 'Residential Building Civil Contractor',
+    title: 'Residential Building',
     description: 'Complete residential construction services for homes and housing projects.',
     features: ['Custom homes', 'Quality construction', 'Timely delivery']
   },
   {
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop',
-    title: 'Villa Building Civil Contractor',
+    title: 'Villa Building',
     description: 'Luxury villa construction with premium materials and exclusive designs.',
     features: ['Luxury finishes', 'Landscape design', 'Smart home integration']
   },
@@ -107,10 +109,40 @@ const laborContractServices = [
 
 export default function Services() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     document.title = 'Services - South India Civil Contractors';
   }, []);
+
+  // Map service title to project type value
+  const getProjectTypeFromService = (serviceTitle: string): string => {
+    const mapping: { [key: string]: string } = {
+      'Apartment Project': 'Apartment',
+      'Bungalow Building': 'Bungalow',
+      'Commercial Building': 'Commercial',
+      'College Building': 'College',
+      'High Rise Project': 'High Rise',
+      'Hospital Project': 'Hospital',
+      'Hotel Project': 'Hotel',
+      'PG Building': 'PG',
+      'Renovation Work': 'Renovation',
+      'Residential Building': 'Residential',
+      'Villa Building': 'Villa'
+    };
+    return mapping[serviceTitle] || '';
+  };
+
+  const handleEnquireNow = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
+  };
 
   return (
     <div className="bg-white">
@@ -147,7 +179,7 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold text-mystic-navy mb-4">
               Civil Contractor Services
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -178,7 +210,7 @@ export default function Services() {
                       {service.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4">{service.description}</p>
-                    <ul className="space-y-1">
+                    <ul className="space-y-1 mb-4">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-center text-sm text-gray-500">
                           <CheckCircle className="w-4 h-4 text-red-inferno mr-2 flex-shrink-0" />
@@ -186,6 +218,13 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
+                    <button
+                      onClick={() => handleEnquireNow(service.title)}
+                      className="w-full mt-4 px-4 py-2 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors flex items-center justify-center"
+                    >
+                      Enquire Now
+                      <ArrowRight className="ml-2" size={18} />
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -213,7 +252,7 @@ export default function Services() {
               <div className="inline-block px-4 py-2 bg-cream/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-cream border border-cream/40">
                 Premium Solution
               </div>
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
+              <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
                 Premium Construction Package
               </h2>
               <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-cream leading-tight">
@@ -237,13 +276,22 @@ export default function Services() {
                   <span className="text-gray-200">Transparent pricing with no hidden costs</span>
                 </li>
               </ul>
-              <Link
-                to="/premium-package"
-                className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors"
-              >
-                Explore Package Details
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => handleEnquireNow('Premium Construction Package')}
+                  className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+                >
+                  Get Quote
+                  <ArrowRight className="ml-2" size={20} />
+                </button>
+                <Link
+                  to="/premium-package"
+                  className="inline-flex items-center px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/30"
+                >
+                  Explore Package Details
+                  <ArrowRight className="ml-2" size={20} />
+                </Link>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -315,7 +363,7 @@ export default function Services() {
               <div className="inline-block px-4 py-2 bg-orange-500/30 backdrop-blur-sm rounded-full text-sm font-semibold mb-4 text-white border border-orange-300/40">
                 Labor Solution
               </div>
-              <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
+              <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4 leading-tight">
                 Civil Labor Contract Package
               </h2>
               <div className="text-5xl md:text-6xl font-heading font-black mb-6 text-orange-100 leading-tight">
@@ -339,13 +387,22 @@ export default function Services() {
                   <span className="text-orange-50">Competitive pricing with no hidden costs</span>
                 </li>
               </ul>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition-colors"
-              >
-                Get a Quote
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => handleEnquireNow('Civil Labor Contract Package')}
+                  className="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition-colors"
+                >
+                  Get a Quote
+                  <ArrowRight className="ml-2" size={20} />
+                </button>
+                <Link
+                  to="/civil-labor-package"
+                  className="inline-flex items-center px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/30"
+                >
+                  Explore Package Details
+                  <ArrowRight className="ml-2" size={20} />
+                </Link>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -463,7 +520,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-[2.7rem] md:text-[3.6rem] font-heading font-bold mb-4">
+            <h2 className="text-[36px] md:text-[3.6rem] font-heading font-bold mb-4">
               Ready to Discuss Your Project?
             </h2>
             <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
@@ -478,6 +535,56 @@ export default function Services() {
           </motion.div>
         </div>
       </section>
+
+      {/* Enquiry Modal */}
+      <AnimatePresence>
+        {isModalOpen && selectedService && (
+          <>
+            {/* Blur overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60]"
+              onClick={handleCloseModal}
+            />
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
+            >
+              <div className="bg-gradient-to-br from-mother-pearl via-mother-pearl/98 to-mother-pearl/95 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto pointer-events-auto border-2 border-mystic-navy/20 ring-2 ring-red-inferno/10">
+                <div className="sticky top-0 bg-gradient-to-r from-mystic-navy to-mystic-navy/95 border-b-2 border-red-inferno/30 px-5 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                  <h2 className="text-xl font-heading font-bold text-white">
+                    {selectedService === 'Premium Construction Package' 
+                      ? 'Premium Construction Consultation' 
+                      : selectedService === 'Civil Labor Contract Package'
+                      ? 'Civil Labor Contract Consultation'
+                      : `${selectedService} Consultation`}
+                  </h2>
+                  <button
+                    onClick={handleCloseModal}
+                    className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
+                  >
+                    <X className="text-white" size={20} />
+                  </button>
+                </div>
+                
+                <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
+                  <ContactForm 
+                    compact={true} 
+                    onSuccess={handleCloseModal}
+                    source={`Services Page - ${selectedService}`}
+                    defaultProjectType={selectedService === 'Premium Construction Package' || selectedService === 'Civil Labor Contract Package' ? '' : getProjectTypeFromService(selectedService)}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, CheckCircle } from 'lucide-react';
+import { useFormData } from '../contexts/FormDataContext';
+import { formatUTMForSubmission } from '../utils/utmTracking';
 
 interface ContactFormProps {
   className?: string;
@@ -8,25 +10,53 @@ interface ContactFormProps {
   compact?: boolean;
   onSuccess?: () => void;
   source?: string;
+  defaultProjectType?: string;
+  skipNavigation?: boolean;
 }
 
-export default function ContactForm({ className = '', showTitle = false, compact = false, onSuccess, source = 'Unknown' }: ContactFormProps) {
+export default function ContactForm({ className = '', showTitle = false, compact = false, onSuccess, source = 'Unknown', defaultProjectType = '', skipNavigation = false }: ContactFormProps) {
   const navigate = useNavigate();
+  const { formData: sharedFormData, updateFormData } = useFormData();
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    location: '',
-    projectType: ''
+    name: sharedFormData.name || '',
+    phone: sharedFormData.phone || '',
+    email: sharedFormData.email || '',
+    location: sharedFormData.location || '',
+    projectType: defaultProjectType || sharedFormData.projectType || ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Sync with shared form data when component mounts or shared data changes
+  useEffect(() => {
+    setFormData(prev => ({
+      name: sharedFormData.name || prev.name,
+      phone: sharedFormData.phone || prev.phone,
+      email: sharedFormData.email || prev.email,
+      location: sharedFormData.location || prev.location,
+      projectType: prev.projectType || sharedFormData.projectType || ''
+    }));
+  }, [sharedFormData.name, sharedFormData.phone, sharedFormData.email, sharedFormData.location, sharedFormData.projectType]);
+
+  // Update project type when defaultProjectType prop changes
+  useEffect(() => {
+    if (defaultProjectType) {
+      setFormData(prev => {
+        const updated = { ...prev, projectType: defaultProjectType };
+        updateFormData({ projectType: defaultProjectType });
+        return updated;
+      });
+    }
+  }, [defaultProjectType, updateFormData]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
+    const updated = {
       ...formData,
       [e.target.name]: e.target.value
-    });
+    };
+    setFormData(updated);
+    // Update shared form data
+    updateFormData({ [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,6 +73,12 @@ export default function ContactForm({ className = '', showTitle = false, compact
       formDataToSend.append('projectType', formData.projectType);
       formDataToSend.append('source', source);
 
+      // Add UTM parameters
+      const utmParams = formatUTMForSubmission();
+      Object.entries(utmParams).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
+
       const response = await fetch('https://build.goproxe.com/webhook/southindiacivilcontractors', {
         method: 'POST',
         body: formDataToSend
@@ -51,6 +87,7 @@ export default function ContactForm({ className = '', showTitle = false, compact
       // Check if response is ok (status 200-299) or if it's a redirect/other success status
       if (response.ok || response.status === 200 || response.status === 201 || response.status === 204) {
         setIsSubmitted(true);
+        // Don't clear shared form data - keep it for other forms
         setFormData({ name: '', phone: '', email: '', location: '', projectType: '' });
         
         // Close modal if callback provided (for home page modal)
@@ -60,10 +97,12 @@ export default function ContactForm({ className = '', showTitle = false, compact
           }, 500);
         }
         
-        // Redirect to thank you page after a brief delay
-        setTimeout(() => {
-          navigate('/thank-you');
-        }, 1000);
+        // Redirect to thank you page after a brief delay (unless skipNavigation is true)
+        if (!skipNavigation) {
+          setTimeout(() => {
+            navigate('/thank-you');
+          }, 1000);
+        }
       } else {
         // Try to get error details
         const errorText = await response.text().catch(() => 'Unknown error');
@@ -78,6 +117,7 @@ export default function ContactForm({ className = '', showTitle = false, compact
         if (response.status < 500) {
           // Likely a redirect or non-standard success response
           setIsSubmitted(true);
+          // Don't clear shared form data - keep it for other forms
           setFormData({ name: '', phone: '', email: '', location: '', projectType: '' });
           
           if (onSuccess) {
@@ -86,9 +126,11 @@ export default function ContactForm({ className = '', showTitle = false, compact
             }, 500);
           }
           
-          setTimeout(() => {
-            navigate('/thank-you');
-          }, 1000);
+          if (!skipNavigation) {
+            setTimeout(() => {
+              navigate('/thank-you');
+            }, 1000);
+          }
         } else {
           alert(`There was an error submitting your form (Status: ${response.status}). Please try again or contact us directly.`);
         }
@@ -104,6 +146,7 @@ export default function ContactForm({ className = '', showTitle = false, compact
         // The webhook might have received the data even if response failed
         console.warn('Form submission had an error, but proceeding to thank you page');
         setIsSubmitted(true);
+        // Don't clear shared form data - keep it for other forms
         setFormData({ name: '', phone: '', email: '', location: '', projectType: '' });
         
         if (onSuccess) {
@@ -112,9 +155,11 @@ export default function ContactForm({ className = '', showTitle = false, compact
           }, 500);
         }
         
-        setTimeout(() => {
-          navigate('/thank-you');
-        }, 1000);
+        if (!skipNavigation) {
+          setTimeout(() => {
+            navigate('/thank-you');
+          }, 1000);
+        }
       }
     } finally {
       setIsSubmitting(false);
@@ -122,12 +167,12 @@ export default function ContactForm({ className = '', showTitle = false, compact
   };
 
   const inputClasses = compact
-    ? "w-full px-3 py-2 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent text-sm"
-    : "w-full px-4 py-3 border border-accent/40 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-transparent";
+    ? "w-full px-3 py-2 bg-white border-2 border-mystic-navy/20 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-red-inferno focus:bg-white text-sm text-mystic-navy placeholder:text-gray-500"
+    : "w-full px-4 py-3 bg-white border-2 border-mystic-navy/20 rounded-lg focus:ring-2 focus:ring-red-inferno focus:border-red-inferno focus:bg-white text-mystic-navy placeholder:text-gray-500";
   
   const labelClasses = compact
-    ? "block text-sm font-semibold text-gray-700 mb-1.5"
-    : "block text-sm font-semibold text-gray-700 mb-2";
+    ? "block text-sm font-semibold text-mystic-navy mb-1.5"
+    : "block text-sm font-semibold text-mystic-navy mb-2";
 
   return (
     <form onSubmit={handleSubmit} className={className} action="https://build.goproxe.com/webhook/southindiacivilcontractors" method="POST">
@@ -220,9 +265,10 @@ export default function ContactForm({ className = '', showTitle = false, compact
             <option value="Commercial">Commercial Building</option>
             <option value="College">College Building</option>
             <option value="High Rise">High Rise Project</option>
-            <option value="Hospital">Hospital Project</option>
+            <option value="Hospital">Hospital</option>
             <option value="Hotel">Hotel Project</option>
             <option value="PG">PG Building</option>
+            <option value="Premium Construction Package">Premium Construction Package</option>
             <option value="Renovation">Renovation Work</option>
             <option value="Residential">Residential Building</option>
             <option value="Villa">Villa Building</option>
