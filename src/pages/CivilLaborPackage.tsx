@@ -19,7 +19,7 @@ import {
   ZoomIn,
   Play,
 } from 'lucide-react';
-import ContactForm from '../components/ContactForm';
+import QuoteForm from '../components/QuoteForm';
 import DownloadForm from '../components/DownloadForm';
 
 const laborContractServices = [
@@ -768,12 +768,11 @@ export default function CivilLaborPackage() {
                 </div>
                 
                 <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
-                  <ContactForm 
-                    compact={true} 
+                  <QuoteForm 
                     onSuccess={handleCloseModal}
                     source="Civil Labor Package Page"
-                    defaultProjectType=""
-                  />
+                    defaultProjectType="Civil Labor Contract Package"
+                />
                 </div>
               </div>
             </motion.div>

@@ -19,7 +19,7 @@ import {
   ZoomIn,
   Play,
 } from 'lucide-react';
-import ContactForm from '../components/ContactForm';
+import QuoteForm from '../components/QuoteForm';
 import BrandLogos from '../components/BrandLogos';
 import { formatUTMForSubmission } from '../utils/utmTracking';
 
@@ -1157,11 +1157,10 @@ export default function PremiumPackage() {
                 </div>
                 
                 <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
-                  <ContactForm 
-                    compact={true} 
+                  <QuoteForm 
                     onSuccess={handleCloseModal}
                     source="Premium Package Page"
-                    defaultProjectType=""
+                    defaultProjectType="Premium Construction Package"
                   />
                 </div>
               </div>

@@ -232,47 +232,49 @@ export default function ContactForm({ className = '', showTitle = false, compact
           </div>
         </div>
 
-        <div>
-          <label htmlFor="location" className={labelClasses}>
-            Project Location
-          </label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className={inputClasses}
-            placeholder="Enter project location"
-          />
-        </div>
+        <div className={compact ? "grid grid-cols-2 gap-4" : "grid md:grid-cols-2 gap-6"}>
+          <div>
+            <label htmlFor="location" className={labelClasses}>
+              Project Location
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              className={inputClasses}
+              placeholder="Enter project location"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="projectType" className={labelClasses}>
-            Project Type *
-          </label>
-          <select
-            id="projectType"
-            name="projectType"
-            value={formData.projectType}
-            onChange={handleChange}
-            required
-            className={inputClasses}
-          >
-            <option value="">Select project type</option>
-            <option value="Apartment">Apartment Project</option>
-            <option value="Bungalow">Bungalow Building</option>
-            <option value="Commercial">Commercial Building</option>
-            <option value="College">College Building</option>
-            <option value="High Rise">High Rise Project</option>
-            <option value="Hospital">Hospital</option>
-            <option value="Hotel">Hotel Project</option>
-            <option value="PG">PG Building</option>
-            <option value="Premium Construction Package">Premium Construction Package</option>
-            <option value="Renovation">Renovation Work</option>
-            <option value="Residential">Residential Building</option>
-            <option value="Villa">Villa Building</option>
-          </select>
+          <div>
+            <label htmlFor="projectType" className={labelClasses}>
+              Project Type *
+            </label>
+            <select
+              id="projectType"
+              name="projectType"
+              value={formData.projectType}
+              onChange={handleChange}
+              required
+              className={inputClasses}
+            >
+              <option value="">Select project type</option>
+              <option value="Apartment">Apartment Project</option>
+              <option value="Bungalow">Bungalow Building</option>
+              <option value="Commercial">Commercial Building</option>
+              <option value="College">College Building</option>
+              <option value="High Rise">High Rise Project</option>
+              <option value="Hospital">Hospital</option>
+              <option value="Hotel">Hotel Project</option>
+              <option value="PG">PG Building</option>
+              <option value="Premium Construction Package">Premium Construction Package</option>
+              <option value="Renovation">Renovation Work</option>
+              <option value="Residential">Residential Building</option>
+              <option value="Villa">Villa Building</option>
+            </select>
+          </div>
         </div>
 
         <button

@@ -13,7 +13,7 @@ import {
   HardHat,
   X
 } from 'lucide-react';
-import ContactForm from '../components/ContactForm';
+import QuoteForm from '../components/QuoteForm';
 
 const services = [
   {
@@ -573,11 +573,14 @@ export default function Services() {
                 </div>
                 
                 <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
-                  <ContactForm 
-                    compact={true} 
+                  <QuoteForm 
                     onSuccess={handleCloseModal}
                     source={`Services Page - ${selectedService}`}
-                    defaultProjectType={selectedService === 'Premium Construction Package' || selectedService === 'Civil Labor Contract Package' ? '' : getProjectTypeFromService(selectedService)}
+                    defaultProjectType={selectedService === 'Premium Construction Package' 
+                      ? 'Premium Construction Package' 
+                      : selectedService === 'Civil Labor Contract Package'
+                      ? 'Civil Labor Contract Package'
+                      : getProjectTypeFromService(selectedService)}
                   />
                 </div>
               </div>

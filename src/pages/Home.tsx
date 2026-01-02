@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogos from '../components/BrandLogos';
 import ContactForm from '../components/ContactForm';
+import QuoteForm from '../components/QuoteForm';
 import {
   Building2,
   ArrowRight,
@@ -119,6 +120,27 @@ const testimonials = [
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [selectedProjectType, setSelectedProjectType] = useState('');
+
+  // Map project type titles to form project types
+  const getProjectTypeForForm = (title: string): string => {
+    const mapping: Record<string, string> = {
+      'High Rise Projects': 'High Rise',
+      'Residential Buildings': 'Residential',
+      'Commercial Buildings': 'Commercial',
+      'Hotel Projects': 'Hotel',
+      'Hospital Projects': 'Hospital',
+      'Educational Buildings': 'Educational',
+    };
+    return mapping[title] || '';
+  };
+
+  const handleGetQuote = (projectTitle: string) => {
+    const projectType = getProjectTypeForForm(projectTitle);
+    setSelectedProjectType(projectType);
+    setIsQuoteOpen(true);
+  };
 
   useEffect(() => {
     document.title = 'South India Civil Contractors - Building Spaces For Life Since 1952';
@@ -177,6 +199,52 @@ export default function Home() {
           </>
         )}
       </AnimatePresence>
+
+      {/* Quote Modal */}
+      <AnimatePresence>
+        {isQuoteOpen && (
+          <>
+            {/* Blur overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              onClick={() => setIsQuoteOpen(false)}
+            />
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none"
+            >
+              <div className="bg-gradient-to-br from-mother-pearl via-mother-pearl/98 to-mother-pearl/95 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto pointer-events-auto border-2 border-mystic-navy/20 ring-2 ring-red-inferno/10">
+                <div className="sticky top-0 bg-gradient-to-r from-mystic-navy to-mystic-navy/95 border-b-2 border-red-inferno/30 px-5 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                  <h2 className="text-xl font-heading font-bold text-white">
+                    Get Quote
+                  </h2>
+                  <button
+                    onClick={() => setIsQuoteOpen(false)}
+                    className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
+                  >
+                    <X className="text-white" size={20} />
+                  </button>
+                </div>
+                
+                <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
+                  <QuoteForm 
+                    onSuccess={() => setIsQuoteOpen(false)}
+                    source="Home Page - Service Card"
+                    defaultProjectType={selectedProjectType}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       {/* Hero Section */}
       <section className="relative bg-mystic-navy text-white overflow-hidden min-h-screen flex items-center -mt-20">
         <div className="absolute inset-0 opacity-30 z-0">
@@ -374,13 +442,21 @@ export default function Home() {
                     {type.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{type.description}</p>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center text-red-inferno font-semibold hover:text-mystic-navy transition-colors"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2" size={16} />
-                  </Link>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => handleGetQuote(type.title)}
+                      className="inline-flex items-center px-4 py-2 bg-red-inferno text-white font-semibold rounded-lg hover:bg-red-inferno/90 transition-colors text-sm"
+                    >
+                      Get Quote
+                    </button>
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center text-red-inferno font-semibold hover:text-mystic-navy transition-colors text-sm"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2" size={16} />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}

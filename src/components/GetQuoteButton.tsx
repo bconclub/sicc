@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, FileText } from 'lucide-react';
-import ContactForm from './ContactForm';
+import QuoteForm from './QuoteForm';
 
 export default function GetQuoteButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,8 +80,7 @@ export default function GetQuoteButton() {
                 </div>
                 
                 <div className="p-5 bg-gradient-to-b from-mother-pearl to-mother-pearl/98">
-                  <ContactForm 
-                    compact={true} 
+                  <QuoteForm 
                     onSuccess={handleClose}
                     source={`Get Quote Button - ${getPageName()} Page`}
                   />
