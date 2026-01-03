@@ -227,15 +227,23 @@ export default function QuoteForm({ onSuccess, source = 'Unknown', defaultProjec
                   <motion.button
                     key={type.id}
                     type="button"
-                    onClick={() => setSelectedProjectType(type.id)}
+                    onClick={() => {
+                      setSelectedProjectType(type.id);
+                      // Automatically move to next step after a short delay for visual feedback
+                      setTimeout(() => {
+                        if (step === 1) {
+                          handleNext();
+                        }
+                      }, 200);
+                    }}
                     whileTap={{ scale: 0.95 }}
-                    className={`aspect-square flex flex-col items-center justify-center p-2 rounded-lg border transition-all ${
+                    className={`aspect-square flex flex-col items-center justify-center p-1 rounded-lg border transition-all ${
                       isSelected
                         ? 'bg-red-inferno border-red-inferno text-white'
                         : 'bg-white border-gray-200 text-mystic-navy hover:border-red-inferno/50 hover:scale-[1.02] hover:shadow-md'
                     }`}
                   >
-                    <Icon size={24} className={isSelected ? 'text-white' : 'text-mystic-navy'} />
+                    <Icon size={24} className={isSelected ? 'text-white' : 'text-red-inferno'} />
                     <span className={`text-xs mt-1 font-medium text-center leading-tight ${isSelected ? 'text-white' : 'text-mystic-navy'}`}>
                       {type.label}
                     </span>
@@ -273,15 +281,23 @@ export default function QuoteForm({ onSuccess, source = 'Unknown', defaultProjec
                         <motion.button
                           key={type.id}
                           type="button"
-                          onClick={() => setSelectedProjectType(type.id)}
+                          onClick={() => {
+                            setSelectedProjectType(type.id);
+                            // Automatically move to next step after a short delay for visual feedback
+                            setTimeout(() => {
+                              if (step === 1) {
+                                handleNext();
+                              }
+                            }, 200);
+                          }}
                           whileTap={{ scale: 0.95 }}
-                          className={`aspect-square flex flex-col items-center justify-center p-2 rounded-lg border transition-all ${
+                          className={`aspect-square flex flex-col items-center justify-center p-1 rounded-lg border transition-all ${
                             isSelected
                               ? 'bg-red-inferno border-red-inferno text-white'
                               : 'bg-white border-gray-200 text-mystic-navy hover:border-red-inferno/50 hover:scale-[1.02] hover:shadow-md'
                           }`}
                         >
-                          <Icon size={24} className={isSelected ? 'text-white' : 'text-mystic-navy'} />
+                          <Icon size={24} className={isSelected ? 'text-white' : 'text-red-inferno'} />
                           <span className={`text-xs mt-1 font-medium text-center leading-tight ${isSelected ? 'text-white' : 'text-mystic-navy'}`}>
                             {type.label}
                           </span>
@@ -298,7 +314,7 @@ export default function QuoteForm({ onSuccess, source = 'Unknown', defaultProjec
               type="button"
               onClick={handleNext}
               disabled={!selectedProjectType}
-              className={`w-full py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
+              className={`w-full py-2 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
                 selectedProjectType
                   ? 'bg-red-inferno text-white hover:bg-red-inferno/90'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
@@ -344,14 +360,14 @@ export default function QuoteForm({ onSuccess, source = 'Unknown', defaultProjec
               <button
                 type="button"
                 onClick={handleBack}
-                className="flex-1 py-3 rounded-lg font-semibold bg-white border-2 border-gray-300 text-mystic-navy hover:bg-gray-50 transition-colors"
+                className="flex-1 py-2 rounded-lg font-semibold bg-white border-2 border-gray-300 text-mystic-navy hover:bg-gray-50 transition-colors"
               >
                 Back
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex-1 py-3 rounded-lg font-semibold bg-red-inferno text-white hover:bg-red-inferno/90 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 py-2 rounded-lg font-semibold bg-red-inferno text-white hover:bg-red-inferno/90 transition-colors flex items-center justify-center gap-2"
               >
                 Next
                 <ChevronRight size={18} />
@@ -442,14 +458,14 @@ export default function QuoteForm({ onSuccess, source = 'Unknown', defaultProjec
               <button
                 type="button"
                 onClick={handleBack}
-                className="flex-1 py-3 rounded-lg font-semibold bg-white border-2 border-gray-300 text-mystic-navy hover:bg-gray-50 transition-colors"
+                className="flex-1 py-2 rounded-lg font-semibold bg-white border-2 border-gray-300 text-mystic-navy hover:bg-gray-50 transition-colors"
               >
                 Back
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.phone}
-                className={`flex-1 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
+                className={`flex-1 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
                   isSubmitting || !formData.name || !formData.phone
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-red-inferno text-white hover:bg-red-inferno/90'
