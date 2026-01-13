@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import PremiumPackage from './pages/PremiumPackage';
 import CivilLaborPackage from './pages/CivilLaborPackage';
 import ThankYou from './pages/ThankYou';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/premium-package" element={<PremiumPackage />} />
           <Route path="/civil-labor-package" element={<CivilLaborPackage />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </Layout>
     </Router>

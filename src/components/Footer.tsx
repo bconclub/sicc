@@ -99,7 +99,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-accent/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400">
-          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} South India Civil Contractors. All rights reserved.</p>
+          <div className="text-center md:text-left space-y-2">
+            <p>&copy; {new Date().getFullYear()} South India Civil Contractors. All rights reserved.</p>
+            <p>
+              <Link to="/privacy-policy" className="text-gray-300 hover:text-red-inferno transition-colors underline">
+                Privacy Policy
+              </Link>
+            </p>
+          </div>
           <p className="text-center md:text-right text-cream">
             Built with <span className="text-red-inferno">❤️</span> at{' '}
             <a 

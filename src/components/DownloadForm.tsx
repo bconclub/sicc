@@ -233,6 +233,17 @@ export default function DownloadForm({
                         </>
                       )}
                     </button>
+                    <p className="text-xs text-gray-600 text-center mt-3">
+                      By submitting, you agree to our{' '}
+                      <a 
+                        href="/privacy-policy" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-red-inferno hover:underline"
+                      >
+                        Privacy Policy
+                      </a>
+                    </p>
                   </form>
                 )}
               </div>
